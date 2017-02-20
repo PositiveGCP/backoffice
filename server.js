@@ -10,9 +10,10 @@ app.use(expressLayouts);
 var router = require('./app/routes');
 app.use('/',router);
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));//Carpeta de funcionamiento
 
 //Servidor
 app.listen(port, function () {
   console.log("Inicializado");
+  console.log("Escuchando en puerto 8080");
 });

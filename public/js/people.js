@@ -2,7 +2,7 @@ firebase.auth().onAuthStateChanged(function( user ) {
   if ( user ) {
     $('#menu').removeClass('scale-out');
     $('#menu').addClass('scale-in');
-    usr.orderByKey().equalTo(user.uid).once('value').then(function (snapshot) {
+    usr.orderByKey().equalTo(user.uid).once('value').then(function (snapshot) {//
       info = snapshot.val()[user.uid];
       uid = user.uid;
       __infoItem();
@@ -38,8 +38,8 @@ function ItemEmp(snapshot) {
     itemData(snapshot,emp,mat,ema,tel,pro);
   });
 }
-
-function itemData(snapshot,emp,mat,ema,tel,pro) {
+//Cambiar platilla con condicional
+function itemData(snapshot,emp,mat,ema,tel,pro) {//Definir privilegios de usuario
   var array = {
     id: snapshot.key,
     image: snapshot.val().Fotografia,
@@ -49,7 +49,7 @@ function itemData(snapshot,emp,mat,ema,tel,pro) {
     email: ema,
     tel: tel,
     disp: snapshot.val().Disponibilidad,
-    puesto: snapshot.val().Puesto,
+    puesto: snapshot.val().Puesto,//Regresa a ser un texto, cambiar a input
     prom: pro,
     last: snapshot.val().lastDate,
     empresa: emp
@@ -62,7 +62,7 @@ function itemData(snapshot,emp,mat,ema,tel,pro) {
       $('#content-wrapper').append(output);
       $('.materialboxed').materialbox();
       $('#'+snapshot.key).click(function () {
-        console.log("click");
+        $('#modal1').modal('open');
       });
     }
   });
@@ -76,6 +76,7 @@ function notNull(val) {
   }
 }
 
+//Posterior modificacion (no me olvides)
 function aVerage() {
   return 0;
 }

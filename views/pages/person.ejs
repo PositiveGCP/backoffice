@@ -1,5 +1,5 @@
 <%- contentFor('nav_space'); %>
-
+<!-- Verificar funcionamiento en otros-->
   <div class="nav-wrapper">
     <div class="input-field">
       <input id="search" type="search" required>
@@ -7,7 +7,7 @@
       <i class="material-icons">close</i>
     </div>
   </div>
-  
+
 <%- contentFor('space'); %>
 
     <div class="container col s12">
@@ -16,7 +16,7 @@
     </div>
     <br>
     <div class="container col s12">
-      <ul class="collection" id="content-wrapper"></ul>
+      <div class="collection" id="content-wrapper"></div>
     </div>
 
 <%- contentFor('space_butt'); %>
@@ -27,6 +27,8 @@
     </ul>
 
 <%- contentFor('space_scr'); %>
+
+    <!-- Cargar archivos de funcionamiento individual en caso de que quiera hacer ma cambios-->
 
     <script src="./js/person.js" charset="utf-8"></script>
     <script src="./js/people.js" charset="utf-8"></script>

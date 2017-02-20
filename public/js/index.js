@@ -19,4 +19,5 @@ var uid;
 $(document).ready(function(){
   $('select').material_select();
   $('.materialboxed').materialbox();
+  $('.modal').modal();
 });
