@@ -1,0 +1,97 @@
+body,
+.main-wrapper {
+  min-height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
+}
+.alignElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#image-roller {
+  height: 100vh;
+  background-image: url('../images/bg-login.jpg');
+  background-position: center;
+  background-size: cover;
+}
+#image-roller blockquote {
+  color: #d0d0d0;
+  position: absolute;
+  width: 25% !important;
+  bottom: 0;
+  margin: 0px 0px 40px 40px;
+  border-left: 5px solid #acacac !important;
+}
+#register-space {
+  max-width: 100%;
+}
+#register-space #information {
+  color: #444444;
+  padding: 30px;
+  h3,h6{
+    font-variant: small-caps;
+  }
+}
+#register-space #information h3 {
+  line-height: 20px;
+  margin-top: 100px;
+}
+#register-space #information .chip {
+  background-color: #ff4f57;
+}
+#register-space #information .chip a {
+  color: #ffffff !important;
+}
+#register-space #register {
+  padding: 0px 60px 0px 60px;
+  label{
+    font-variant: small-caps;
+  }
+}
+#register-space #register #email .active,
+#register-space #register #password .active {
+  color: #4d5575;
+}
+#register-space #register #email input:focus,
+#register-space #register #password input:focus,
+#register-space #register #email input:active,
+#register-space #register #password input:active,
+#register-space #register #email input:visited,
+#register-space #register #password input:visited {
+  border-bottom: 2px solid #d6d6d6;
+  box-shadow: 0 1px 0 0 #d6d6d6;
+}
+#register-space #register #password {
+  margin-bottom: 20px;
+}
+#register-space #send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#register-space #send button {
+  background: #4081ff;
+  margin-bottom: 30px;
+}
+#register-space #forget-pass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+#register-space #forget-pass a {
+  color: #545454;
+}
+#register-space #forget-pass .chip {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#register-space #forget-pass .chip:hover {
+  background: #262626;
+}
+#register-space #forget-pass .chip:hover a {
+  color: #fff;
+}

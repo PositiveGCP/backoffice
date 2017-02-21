@@ -1,18 +1,4 @@
-firebase.auth().onAuthStateChanged(function( user ) {
-  if ( user ) {
-    $('#menu').removeClass('scale-out');
-    $('#menu').addClass('scale-in');
-    usr.orderByKey().equalTo(user.uid).once('value').then(function (snapshot) {//
-      info = snapshot.val()[user.uid];
-      uid = user.uid;
-      __infoItem();
-    });
-  } else {
-    Alert("No hay sesión abierta","red");
-  }
-}, function ( err ) {
-  Alert("Error","red");
-});
+"use strict";
 
 function Alert(txt,color) {
   var $bad = $('<span>'+txt+'</span>');

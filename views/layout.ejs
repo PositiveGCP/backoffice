@@ -11,8 +11,13 @@
     <script type="text/javascript" src="./bower_components/materialize/dist/js/materialize.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <!-- STYLES -->
+    <link rel="stylesheet/less" type="text/css" href="./less/master.less"> <!-- Main Style -->
   </head>
   <body>
+
+    <%- defineContent('navbar_side'); %>
+
     <nav class="nav-extended">
       <div class="nav-wrapper">
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -45,9 +50,12 @@
     </div>
    </div>
 
-    <script src="./js/index.js" charset="utf-8"></script>
 
     <%- defineContent('space_scr'); %>
+
+    <script src="./js/index.js" charset="utf-8"></script>
+    <!-- Less -->
+    <script src="./bower_components/less/dist/less.js" charset="utf-8"></script>
 
   </body>
 </html>
