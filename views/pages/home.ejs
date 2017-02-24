@@ -1,5 +1,21 @@
 <%- contentFor('context') -%>
-<h1>Bienvenido</h1>
-<a href="#!" class="btn" id="kickout">Salir alv</a>
 
+<div class="container" id="rendered-sidebar"></div>
+
+<div class="container" id="main-wrapper">
+  <div id="top-navbar">
+    <nav class="z-depth-0">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo right" id="kickout"><i class="material-icons left">close</i>Cerrar sesión</a>
+        <ul class="left">
+          <li><a href="#!" data-activates="barra-lateral" class="active-sidebar waves-effect waves-light tooltipped" id="left-activator" data-position="bottom" data-delay="50" data-tooltip="Menu"><i class="material-icons">menu</i></a></li>
+          <li><a href="#!" class="waves-effect waves-light tooltipped" id="index" onclick="__navigation ( this.id );" data-position="bottom" data-delay="50" data-tooltip="Inicio"><i class="material-icons">home</i> </a></li>
+          <li class="text-navigation"><strong><a href="#!" class="disabled" id="actual-navigation-location"></a></strong></li>
+        </ul> <!-- ./Right -->
+      </div> <!-- ./nav-wrapper -->
+    </nav> <!-- nav -->
+  </div> <!-- /#top-navbar -->
+</div> <!-- /#main-wrapper -->
+
+<script src="./js/templates/sidebar.js" charset="utf-8"></script> <!-- Script principal -->
 <script src="./js/home.js" charset="utf-8"></script> <!-- Script principal -->

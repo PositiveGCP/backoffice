@@ -10,6 +10,7 @@ module.exports = router;
 
 // Panel de autenticación
 router.get('/login',function( request, response ){
+  // console.log( request.route.path );
   response.render('pages/login',{
     pageTitle: 'Inicio de sesión GCP',
     title: 'Login',
@@ -19,18 +20,25 @@ router.get('/login',function( request, response ){
 
 //Home
 router.get('/',function (request, response) {
-  console.log( request.params );
-  response.render('pages/home',{
-    pageTitle: "hola",
-    title: 'WTF',
+  response.render('pages/login',{
+    pageTitle: 'Inicio de sesión GCP',
+    title: 'Login',
     layout: 'master'
   });
 });
 
+// router.get('/home/tokenID=:token',function (request, response) {
+//   console.log( request.params.token );
+//   response.render('pages/home',{
+//     pageTitle: "GCP",
+//     layout: 'master'
+//   });
+// });
+
 router.get('/home',function (request, response) {
   response.render('pages/home',{
-    pageTitle: "hola",
-    layout: 'master'
+    pageTitle: "GCP BackOffice",
+    layout: 'master-home'
   });
 });
 
