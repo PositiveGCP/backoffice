@@ -1,20 +1,21 @@
 <%- contentFor('context'); %>
 <!-- Aquí va todo lo que renderiza desde el inicio -->
 <div class="main-wrapper">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col hide-on-med-and-down l5" id="image-roller">
         <blockquote>
           “La confianza es el lubricante que hace posible que las organizaciones funcionen”. <br><strong>– Warren Bennis </strong>
         </blockquote>
-      </div> <!-- /#image-roller -->
+      </div> -->
+      <!-- /#image-roller -->
 
-      <div class="col s12 m12 l7" id="register-space">
+      <div class="col s12 m12 l12" id="register-space">
         <div class="row" id="information">
-          <h3 class="center-align"><strong>Iniciar sesión</strong></h3>
+          <h3 class="center-align">Iniciar sesión</h3>
           <h6 class="center-align"><strong>GCP</strong> un servicio de
             <div class="chip center-align">
               <a href="http://www.positivecompliance.com" target="_blank" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Ir a sitio web."><strong>Positive</strong> compliance</a>
-            </div>.
+            </div>
           </h6>
         </div>
         <div class="row" id="register">
@@ -29,7 +30,7 @@
             <label for="passwd">Contraseña</label>
           </div> <!-- /#password -->
           <div id="send">
-            <button class="btn z-depth-1 waves-effect hoverable" name="login-button" id="login-request">Entrar
+            <button class="btn z-depth-0 waves-effect hoverable" name="login-button" id="login-request">Entrar
               <i class="material-icons right">send</i>
             </button>
           </div> <!-- ./send -->
@@ -38,6 +39,13 @@
               <a href="#password-recover" id="password-forget">Olvidé mi contraseña.</a>
             </div>
           </div> <!-- ./forget-pass -->
+          <div id="register-form">
+            <div class="chip">
+              <a href="/register" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Solicitud de registro en GCP." id="regbtn">
+                Registro
+              </a>
+            </div>
+          </div> <!-- ./register -->
         </div> <!-- ./register -->
       </div> <!-- /#register-space -->
     </div> <!-- /.row -->

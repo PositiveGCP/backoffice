@@ -1,0 +1,122 @@
+<%- contentFor('context') -%>
+<!-- Plantilla para Registro -->
+<div class="main-wrapper">
+
+    <div class="col s12 m12 l12" id="register-space">
+
+      <div class="row" id="information">
+        <h3 class="center-align">Registro</h3>
+        <h6 class="center-align"><strong>GCP</strong> un servicio de
+          <div class="chip center-align">
+            <a href="http://www.positivecompliance.com" target="_blank" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Ir a sitio web."><strong>Positive</strong> compliance</a>
+          </div>
+        </h6>
+      </div> <!-- /#information -->
+
+      <div class="row" id="register">
+
+        <!-- Información personal -->
+        <div class="col l6">
+
+          <div class="input-field col l6" id="first-name">
+            <i class="material-icons prefix">face</i>
+            <input id="first-name-input" type="text" required>
+            <label for="first-name-input">Nombre(s) *</label>
+          </div> <!-- /#nombre -->
+
+          <div class="input-field col l6" id="last-name">
+            <i class="material-icons prefix">face</i>
+            <input id="last-name-input" type="text" required>
+            <label for="last-name-input">Apellido *</label>
+          </div> <!-- /#apellido -->
+
+          <div class="input-field col l12" id="company">
+            <i class="material-icons prefix">work</i>
+            <input id="company-input" type="text" required>
+            <label for="company-input">Empresa u organización *</label>
+          </div> <!-- /#empresa -->
+
+        </div> <!-- /Información personal -->
+
+        <div class="col l6">
+
+          <div class="input-field col l6" id="email">
+            <i class="material-icons prefix">email</i>
+            <input id="email-input" type="email" class="validate" required>
+            <label for="email" data-error="Intenta escribiendo un dominio válido." data-success="Excelente.">Correo electrónico *</label>
+          </div> <!-- /#email -->
+
+          <div class="input-field col l6" id="tel-number">
+            <i class="material-icons prefix">phone</i>
+            <input id="tel-number-input" type="tel" required>
+            <label for="tel-number-input">Teléfono de contacto *</label>
+          </div> <!-- /#telefono -->
+
+          <div class="input-field col l12" id="date">
+            <i class="material-icons prefix">date_range</i>
+            <input id="date-input" type="date" class="datepicker" placeholder="Fecha de contacto">
+          </div> <!-- /#datePicker-info -->
+
+        </div>
+
+        <div class="col l12">
+
+          <div class="input-field col l6" id="eco-sector">
+            <i class="material-icons prefix">business</i>
+            <select id="eco-sector-input">
+              <option value="0" disabled selected>Sector económico *</option>
+              <option value="1">Administración</option>
+              <option value="2">Comercial</option>
+              <option value="3">Comunicaciones</option>
+              <option value="4">Construcción</option>
+              <option value="5">Educativo</option>
+              <option value="6">Energético</option>
+              <option value="7">Financiero</option>
+              <option value="8">Industrial</option>
+              <option value="9">Minero</option>
+              <option value="10">Sanitario</option>
+              <option value="11">Transportes</option>
+              <option value="12">Turístico</option>
+            </select>
+            <label> Prioridad </label>
+          </div> <!-- /#eco-sector-info -->
+
+          <div class="input-field col l6" id="representation">
+            <i class="material-icons prefix">supervisor_account</i>
+            <select id="representation-input">
+              <option value="0" disabled selected>Representación *</option>
+              <option value="1">11-50</option>
+              <option value="2">51-100</option>
+              <option value="3">101-499</option>
+              <option value="4">500-2500</option>
+              <option value="5">+ 2500</option>
+            </select>
+            <label> Prioridad </label>
+          </div> <!-- /#eco-sector-info -->
+
+        </div>
+
+      </div> <!-- ./register -->
+
+      <!--   -->
+
+      <div class="row" id="send">
+        <p>
+          <input type="checkbox" id="accept" required/>
+          <label for="accept">Acepto que Positive Compliance utilice mis datos para aprobación y registro en el servicio GCP.</label>
+        </p>
+        <br>
+        <button class="btn z-depth-0 waves-effect hoverable" name="login-button" id="register-request">Mandar solicitud
+          <i class="material-icons right">send</i>
+        </button>
+      </div> <!-- /#send -->
+
+      <a href="/login" class="btn z-depth-0 waves-effect hoverable" id="back">Inicar sesión
+        <i class="material-icons right">person</i>
+      </a>
+
+    </div> <!-- /#register-space -->
+  </div> <!-- ./main-wrapper -->
+
+
+  <script src="./js/register.js" charset="utf-8"></script> <!-- Script principal -->

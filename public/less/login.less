@@ -9,6 +9,12 @@ body,
   align-items: center;
   justify-content: center;
 }
+.gbTransition( @time ){
+  -webkit-transition: all @time ease;
+  -moz-transition: all @time ease;
+  -o-transition: all @time ease;
+  transition: all @time ease;
+}
 #image-roller {
   height: 100vh;
   background-image: url('../images/bg-login.jpg');
@@ -34,33 +40,63 @@ body,
   }
 }
 #register-space #information h3 {
-  line-height: 20px;
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 40px;
   margin-top: 100px;
 }
+#register-space #information h6 {
+  font-size: 17px;
+  font-weight: 400;
+}
 #register-space #information .chip {
-  background-color: #ff4f57;
+  border: 2px solid #ff4f57;
+  background: transparent !important;
+  height: 35px;
+  .gbTransition( 0.3s );
 }
 #register-space #information .chip a {
-  color: #ffffff !important;
+  color: #ff4f57;
+}
+#register-space #information .chip:hover {
+  background: #ff4f57 !important;
+  a{
+    color: #fff;
+  }
 }
 #register-space #register {
+  width: 50%; // En caso de querer que esté enmedio y pequeño
   padding: 0px 60px 0px 60px;
   label{
     font-variant: small-caps;
   }
 }
 #register-space #register #email .active,
-#register-space #register #password .active {
-  color: #4d5575;
+#register-space #register #password .active,
+#password-recover #email-recovery .active {
+  color: #282828;
 }
+#register-space{
+  #register #email, #password{
+    #email-input, label{
+      font-weight: 300;
+    }
+  }
+}
+// Todos los input
 #register-space #register #email input:focus,
 #register-space #register #password input:focus,
+#password-recover #email-recovery input:focus,
 #register-space #register #email input:active,
 #register-space #register #password input:active,
+#password-recover #email-recovery input:active,
 #register-space #register #email input:visited,
-#register-space #register #password input:visited {
-  border-bottom: 2px solid #d6d6d6;
-  box-shadow: 0 1px 0 0 #d6d6d6;
+#register-space #register #password input:visited,
+#password-recover #email-recovery input:visited, {
+  border: 0px solid #282828;
+  box-shadow: 0 0.5px 0 0 #282828;
+  padding: 0px 0px 0px 5px;
+  margin-top: 5px;
 }
 #register-space #register #password {
   margin-bottom: 20px;
@@ -71,8 +107,17 @@ body,
   justify-content: center;
 }
 #register-space #send button {
-  background: #4081ff;
-  margin-bottom: 30px;
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid #3476c3;
+  background: transparent;
+  color: #3476c3;
+  margin-bottom: 10px;
+  .gbTransition( 0.2s );
+}
+#register-space #send button:hover{
+  background-color: #3476c3;
+  color: #fff;
 }
 #register-space #forget-pass{
   display: flex;
@@ -84,14 +129,39 @@ body,
   color: #545454;
 }
 #register-space #forget-pass .chip {
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  border: 2px solid #262626;
+  background: transparent;
+  height: 35px;
+  .gbTransition( 0.3s );
 }
 #register-space #forget-pass .chip:hover {
   background: #262626;
 }
 #register-space #forget-pass .chip:hover a{
   color: #fff;
+}
+#register-form, #forget-pass{
+  font-variant: small-caps;
+}
+#register-space #register-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  a{
+    font-size: 16px !important;
+    color: #3dbf69;
+  }
+  .chip{
+    border: 2px solid #3dbf69;
+    background: transparent;
+    height: 35px;
+    .gbTransition( 0.3s );
+  }
+  .chip:hover{
+    background: #3dbf69;
+    a{
+      color: #fff;
+    }
+  }
 }

@@ -1,0 +1,111 @@
+body,
+.main-wrapper {
+  min-height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
+}
+.alignElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gbTransition( @time ){
+  -webkit-transition: all @time ease;
+  -moz-transition: all @time ease;
+  -o-transition: all @time ease;
+  transition: all @time ease;
+}
+#register-space{
+  width: 90%;
+  margin-left: 5%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+#register-space #information h3, h6{
+  font-variant: small-caps;
+}
+#register-space #information h3 {
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 40px;
+  margin-top: 70px;
+}
+#register-space #information h6 {
+  font-size: 15px;
+  font-weight: 400;
+}
+#register-space #information .chip {
+  border: 2px solid #ff4f57;
+  background: transparent !important;
+  height: 35px;
+  .gbTransition( 0.3s );
+}
+#register-space #information .chip a {
+  color: #ff4f57;
+}
+#register-space #information .chip:hover {
+  background: #ff4f57 !important;
+  a{
+    color: #fff;
+  }
+}
+#register-space #register{
+  label, input{
+    font-size: 13px;
+  }
+}
+#register-space #send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p{
+    input{
+      font-size: 14px;
+    }
+    text-align: center;
+  }
+  display: block;
+}
+#register-space #send button {
+  .alignElement();
+  position: absolute;
+  left: calc( 50% - 10px );
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid #3476c3;
+  background: transparent;
+  color: #3476c3;
+  margin-bottom: 10px;
+  .gbTransition( 0.2s );
+}
+#register-space #send button:hover{
+  background-color: #3476c3;
+  color: #fff;
+}
+#register-space{
+  .active{
+    color: #282828;
+  }
+  input:active, input:focus, input:visited{
+    border: 0px solid #282828;
+    box-shadow: 0 0.5px 0 0 #282828;
+    padding: 0px 0px 0px 5px;
+    margin-top: 5px;
+  }
+}
+#back{
+  .alignElement();
+  position: absolute;
+  left: calc( 50% - 8px );
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid #3dbf69;
+  background: transparent;
+  color: #3dbf69;
+  margin: 40px 0 20px 0;
+  .gbTransition( 0.2s );
+}
+#back:hover{
+  background-color: #3dbf69;
+  color: #fff;
+}

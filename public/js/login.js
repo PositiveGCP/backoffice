@@ -1,5 +1,12 @@
 "use strict";
 
+$('#email-input').keydown( function(e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        loginProcess(); // Función de inicio de sesión
+    }
+}); // #passwd-input.keydown
+
 $('#passwd-input').keydown( function(e) {
     if (e.which == 13) {
         e.preventDefault();
@@ -22,11 +29,12 @@ function loginProcess () {
     $('#passwd-input').val("");
     return;
   }
+  else {
+    crearAlerta("<strong>Autenticando...</strong>","rounded blue");
+  }
 
   auth.signInWithEmailAndPassword( param1, param2 )
     .then( function ( success ) {
-      console.log(success);
-      crearAlerta( "¡Bienvenido!", "black" );
     })
     .catch( function(e) {
       errHandler( e, envMode ); // Dependiendo del ambiente de desarrollo muestra el error.
@@ -75,9 +83,10 @@ function errHandler ( error, mode ) {
 //Recuperación de contraseña
 $("#recovery-request").click( function(){
   var email   = stringCheck($('#email-input-recovery').val());
+  console.log( "Que pedo");
 
   if ( email != $('#email-input-recovery').val() ){
-    envMode == "development" ? crearAlerta( param1 + " . " + param2, "black" ) : crearAlerta( "Intente de nuevo", "black" ); //Verifica que se envía y muestra errores.
+    envMode == "development" ? crearAlerta( email , "rounded black" ) : crearAlerta( "Intente de nuevo", "rounded black" ); //Verifica que se envía y muestra errores.
     $('#email-input-recovery').val(""); //Limpiar string
     return;
   }
@@ -87,9 +96,9 @@ $("#recovery-request").click( function(){
     //Cuando si se envío
     $('#email-input-recovery').val(''); //Limpiar input
     $('#password-recover').modal('close'); //Cerrar modal
-    crearAlerta("Se envío. Verifique su correo", "green");
+    crearAlerta("<strong>Se envío.</strong> Verifique su correo", "rounded green");
   }, function(error) {
-    envMode == "development" ? crearAlerta( error.message, "red" ) : crearAlerta( "No se envío", "red" );
+    envMode == "development" ? crearAlerta( error.message, "red" ) : crearAlerta( "No se envío", "rounde red" );
   });
 
 });

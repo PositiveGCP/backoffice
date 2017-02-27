@@ -1,39 +1,38 @@
 //Requerimientos
-var express = require('express');
-var path    = require('path');
+var express     = require('express');
+var path        = require('path');
 
 //Router
-var router = express.Router();
+var router      = express.Router();
 
 //Exportar
 module.exports = router;
 
 // Panel de autenticación
 router.get('/login',function( request, response ){
-  // console.log( request.route.path );
   response.render('pages/login',{
     pageTitle: 'Inicio de sesión GCP',
     title: 'Login',
-    layout: 'master'
+    style: 'login',
+    layout: 'master-noHome'
   });
 });
 
-//Home
+//Home -> redirige a login
 router.get('/',function (request, response) {
-  response.render('pages/login',{
-    pageTitle: 'Inicio de sesión GCP',
-    title: 'Login',
-    layout: 'master'
-  });
+  response.redirect('/login');
 });
 
-// router.get('/home/tokenID=:token',function (request, response) {
-//   console.log( request.params.token );
-//   response.render('pages/home',{
-//     pageTitle: "GCP",
-//     layout: 'master'
-//   });
-// });
+// Pagina de registro
+router.get('/register',function( request, response ){
+  // console.log( request.route.path );
+  response.render('pages/register',{
+    pageTitle: 'Registro',
+    title: 'Registro GCP',
+    style: 'register',
+    layout: 'master-noHome'
+  });
+});
 
 router.get('/home',function (request, response) {
   response.render('pages/home',{
@@ -41,29 +40,3 @@ router.get('/home',function (request, response) {
     layout: 'master-home'
   });
 });
-
-//Personas (alta y consulta)
-router.get('/personas',function (req, res) {
-  res.render('pages/person');
-});
-
-
-// //Alta desde csv Aparte??
-// router.get('/personas/masive',function (req, res) {
-//   res.render('pages/person');
-// });
-
-// //Personas (alta y consulta)
-// router.get('/usuarios',function (req, res) {
-//   res.render('pages/person');
-// });
-
-// //Alta desde csv Aparte??
-// router.get('/usuarios/masive',function (req, res) {
-//   res.render('pages/user');
-// });
-
-// //Cuentas (alta y consulta) superuser
-// router.get('/usuarios',function (req, res) {
-//   res.render('pages/person');
-// });
