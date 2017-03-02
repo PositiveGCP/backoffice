@@ -1,3 +1,9 @@
+// Colores
+@amarillo: #ffcc33;
+@blanco: #fff;
+@azul: #2f76ff;
+
+// Funciones
 .alignElement {
   display: flex;
   align-items: center;
@@ -6,6 +12,53 @@
 .fix-fixed {
   padding-left: 250px;
 }
+.gbTransition( @time ){
+  -webkit-transition: all @time ease;
+  -moz-transition: all @time ease;
+  -o-transition: all @time ease;
+  transition: all @time ease;
+}
+// Preloader
+#preloader{
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  background: @azul;
+  z-index: 9999;
+  font-variant: small-caps;
+  .alignElement();
+  display: table;
+  .main-wrapper{
+    display: table-cell;
+    vertical-align: middle;
+    width: 600px;
+    #staticImage{
+      img{
+        margin-top: -10px;
+        width: 250px;
+        height: auto;
+      }
+    }
+    .progress{
+      margin-top: -10px;
+      width: 30%;
+      left: 35%;
+      background-color: darken( @azul, -20% ) !important;
+      .indeterminate{
+        background-color: @azul;
+      }
+    }
+    h1{
+      color: #fff;
+      line-height: 0.9em;
+      margin: 0px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      font-size: 16px;
+    }
+  } // .main-wrapper
+}
+// Estilos
 #main-wrapper {
   height: auto;
   width: 100%;
@@ -81,6 +134,14 @@
       color: #fff;
       padding: 0 20px 0 20px !important;
     }
+    .gbTransition( 0.3s );
+  }
+  .collapsible-header:hover{
+    background-color: #373737;
+    border-left: 10px solid #2f76ff !important;
+  }
+  .collapsible-header:first-letter{
+    text-transform: capitalize;
   }
   .collapsible-body{
     background: #2e2e2e;
@@ -90,25 +151,76 @@
         padding: 0 20px 0 20px;
         color: #fff;
       }
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
+      font-size: 14px;
       color: #fff;
-      -webkit-transition: all 0.3s ease;
-      -moz-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      // Para poner margen izquierdo
+      .gbTransition(0.3s);
     }
     a:hover {
+      font-weight: 500;
       background-color: #373737;
-      border-left: 10px solid #2f76ff !important;
+      border-left: 15px solid #ffcc33 !important;
+    }
+    ul li a{
+      font-weight: 300;
+    }
+    ul li a:first-letter{
+      text-transform: capitalize;
     }
   }
 }
 
 #top-navbar nav {
+  line-height: 0 !important;
   background-color: #373737;
+}
+#top-navbar{
+  .nav-wrapper{
+    .right{
+      right: 0 !important;
+      line-height: 64px !important;
+      padding-right: 20px;
+      a{
+        i{
+          padding: 0px;
+          margin: 0px;
+          line-height: 36px !important;
+        }
+      }
+      #nav-app, #nav-guias, #kickout{
+        border-radius: 0px;
+        box-shadow: 0px;
+        margin: 0px;
+      }
+      #nav-app{
+        background-color: transparent;
+        color: #fff;
+        padding: 0px 8px 0px 20px;
+      }
+      #nav-app:hover{
+        background-color: @azul;
+        color: #fff;
+      }
+      #nav-guias{
+        background-color: transparent;
+        color: #fff;
+        padding: 0px 8px 0px 20px;
+      }
+      #nav-guias:hover{
+        background-color: darken(@amarillo, 10%);;
+        color: #fff;
+      }
+      #kickout{
+        background-color: transparent;
+        color: #fff;
+        padding: 0px 20px 0px 15px;
+        .gbTransition( 0.3s );
+      }
+      #kickout:hover{
+        background-color: @blanco;
+        color: #282828;
+      }
+    }
+  }
 }
 #top-navbar #left-activator {
   background-color: #2f76ff;
@@ -116,30 +228,40 @@
 #top-navbar #left-activator:hover {
   background-color: #0056fb;
 }
-#top-navbar .brand-logo {
-  font-size: 18px;
-  font-weight: 300;
-  padding: 0px 20px 0px 10px;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  margin: 0;
-}
-#top-navbar .right {
-  right: 0 !important;
-}
 #top-navbar .brand-logo:hover {
   background-color: #2a2a2a;
 }
 #top-navbar .text-navigation {
   font-size: 16px;
   font-weight: 300;
+  line-height: 64px;
   width: auto;
 }
 .active-sidebar {
+  margin-top: 0;
+  line-height: 0 !important;
   background-color: #2f76ff;
 }
 .active-sidebar:hover {
   background-color: #0044c8;
+}
+// Para cambiar el texto de el badge
+span.badge.new:after{
+  content: " " !important;
+}
+// Para cualquier tipo de dropdown en en la aplicación
+.dropdown-content{
+  color: #282828;
+  li{
+    a{
+      color: #282828;
+      .gbTransition( 0.3s );
+      font-weight: 300;
+    }
+    a:hover{
+      // border: solid 2px @azul;
+      background-color: #ececec;
+      font-weight: 500;
+    }
+  }
 }

@@ -13,68 +13,44 @@
     {/currentUser}
     <li><div class="divider"></div></li>
 
-    <div id="content-li">
-      {#dataPermissions}
+    {@iter obj=dataPermissions}
+      <div id="content-li">
         <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">settings</i>Operaciones</a>
-            <div class="collapsible-body">
-              <ul>
-                {#operaciones}
-                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
-                {/operaciones}
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header waves-effect waves-blue">{$key}<i class="material-icons left">{$icon}</i></a>
+              {@iter obj=$value}
+                <div class="collapsible-body">
+                  {#$value}
+                  <ul>
+                      <li><a href="/home/{.}">{.}<i class="material-icons left">keyboard_arrow_right</i></a></li>
+                  </ul>
+                  {/$value}
+                </div>
+              {/iter}
+            </li>
+          </ul>
+        </li>
+      </div>
+    {/iter}
+    {!}
+    {#dataPermissions}
+      {#.}
       <div id="content-li">
         <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">info_outline</i>Información</a>
+            <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">settings</i>{.}</a>
             <div class="collapsible-body">
               <ul>
-                {#informacion}
-                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
-                {/informacion}
+                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {~n}</a></li>
               </ul>
             </div>
           </li>
         </ul>
       </li>
-      <div id="content-li">
-        <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">work</i>Maestros</a>
-            <div class="collapsible-body">
-              <ul>
-                {#maestros}
-                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
-                {/maestros}
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-      <div id="content-li">
-        <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">attach_money</i>Finanzas</a>
-            <div class="collapsible-body">
-              <ul>
-                {#finanzas}
-                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
-                {/finanzas}
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-      {/dataPermissions}
-    </div>
+      {/.}
+    {/dataPermissions}
+    {!}
   </ul>
 </div>

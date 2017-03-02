@@ -1,14 +1,65 @@
 "use strict";
 
-auth.onAuthStateChanged(function(user) {
+auth.onAuthStateChanged( function( user ) {
   if (user) {
-    crearAlerta( "Bienvenido <strong>" + user.email + "</strong>", "blue" );
-    findInDB( user.uid );
+    $('#loadText').html("Distorcionando el espacio tiempo...");
+    // Controlar como se renderizen los elementos
+    var getCredential = new Promise( function( resolve, reject ) {
+      Enviorment( user.uid, function( credential ){ // Dentro del paréntesis se pudo haber llamado el resultado del callback
+        // Aquí las credenciales del usuario ya llegaron
+        resolve( credential );
+      });
+    });
+
+    // Promise de los datos de firebase
+    getCredential
+      .then( function( success ) {
+        /* Controlar renderizado */
+        var render  = new Promise( function( resolve, reject ){
+          UsuarioActual( success, function( stateOfRender ){ // Función que renderiza barra lateral
+            resolve( stateOfRender );
+          });
+        });
+
+        // Atender la promesa 'render'
+        render
+          .then( function( success ){
+            $('#loadText').html("Alineando planetas...");
+            $('#preloader').delay(0).fadeOut('slow', function() {
+              $(this).remove();
+            });
+            console.log("Terminó de renderizar "+success);
+          }) // then
+          .catch( function( reject ){
+            console.error( reject );
+          }); // catch
+
+
+      }) // then
+      .catch( function( err ){
+        console.error( err );
+      }); // catch
   }
   else {
     window.location.href = "/login";
   }
 });
+
+/*******************************************************
+ * Enviorment: Función asíncrona para la obtención de  *
+ * datos de Firebase.                                  *
+ *                                                     *
+ * @params:                                            *
+ *  + id: El identificador de usuario que es obtenido  *
+ *         desde la sesión.                            *
+ *  + callback: async                                  *
+ * @return: Ninguno debido a que es asíncrona          *
+ *******************************************************/
+
+function Enviorment( id, callback ){ // Objeto ambiente
+  var env   = findInDB( id );
+  callback( env );
+}
 
 /*******************************************************
  * findInDB: Función que busca la info de la persona   *
@@ -22,36 +73,47 @@ auth.onAuthStateChanged(function(user) {
 
 function findInDB ( id ) {
 
-  const users = db.ref( 'Usuarios' ).orderByKey().equalTo( id ).limitToLast(1);
+  return new Promise( function( resolve, reject ){
 
-  var llave, info, empresa;
+    const users = db.ref( 'Usuarios' ).orderByKey().equalTo( id ).limitToLast(1); // Referencia a la base de datos
+    var secret = { // Credenciales del usuario
+      'usuario': null,
+      'empresa': null
+    };
+    var llave, info, empresa;
 
-  console.log(users);
+    if ( users != null ){
 
-  if ( users != null ){
+      users.on( 'child_added', function( snapshot ){
 
-    users.on( 'child_added', function( snapshot ){
+        llave = snapshot.key;
+        info  = snapshot.val();
 
-      llave = snapshot.key;
-      info  = snapshot.val();
+          db.ref( 'Cuenta' ).child( info.Empresa ).on( 'value' , function( snapshot ){
 
-      db.ref( 'Cuenta' ).child( info.Empresa ).on('value',function(snapshot){
-        console.log( snapshot );
-        empresa = snapshot.val();
-        console.log( empresa );
-        console.log("Lo encontré!");
-        defineAmbiente( info, empresa );
+            empresa = snapshot.val();
+            secret['usuario'] = info;
+            secret['empresa'] = empresa;
 
+            resolve( secret ); // Resolver la promesa
+
+          }); // db.ref
       });
-    });
-  }
-  else{
-    crearAlerta("Ocurrió un grave error. Pregunte a administrador","black");
-    auth.signOut(); // Cerrar sesión -> es una cuenta inexistente
-    window.location.href = "/login";
-  }
+    } // if
+    else{
+      secret = null;
+      crearAlerta("Ocurrió un grave error. Pregunte a administrador","black");
+      auth.signOut(); // Cerrar sesión -> es una cuenta inexistente
+      window.location.href = "/login";
+    } // else
+
+  }); // Promise
 }
 
+function UsuarioActual( credential, callback ){
+  var ambiente = defineAmbiente( credential['usuario'], credential['empresa'] );
+  callback( ambiente );
+}
 
 /*******************************************************
  * defineAmbiente: Coloca la información dentro de un  *
@@ -67,6 +129,19 @@ function findInDB ( id ) {
  *******************************************************/
 
 function defineAmbiente ( usuario, empresa ) {
+
+  /*
+  Usuario tiene como campos:
+  + Nombre
+  + Primer apellido
+  + Segundo apellido
+  + Imagen de perfil
+  + Correo electrónico
+  + Compañia
+  + Tipo
+  */
+  var currentUser; // Usuario que se manejará durante toda la sesión
+
   currentUser = {
     name        : usuario.Nombre,
     flast_na    : usuario.ApPat,
@@ -78,47 +153,121 @@ function defineAmbiente ( usuario, empresa ) {
     type        : usuario.Tipo,
   };
 
-  // console.log( currentUser );
-
-  /* Rellenar información de barra lateral */
-
   var renderInfo = {
     currentUser: [],
     dataPermissions: []
   },
       dataPermissions = {};
 
-  if ( currentUser.type === "superuser" ) {
-    dataPermissions = {
-      "operaciones": ["personas", "incidentes"],
-      "informacion": ["resultados", "pendientes", "dictamen", "tableros"],
-      "maestros": ["cuentas","entidades","partners","encuestas","usuarios","funciones"],
-      "finanzas": ["sistemas","tickets","pagos"]
-    };
+  // Superusuario:
+  var super_user = {
+    "operaciones": ["personas", "transacciones", "incidentes"],
+    "informacion": ["resultados", "pendientes", "dictamen", "tableros"],
+    "maestros": ["cuentas","entidades","partners","encuestas","usuarios","funciones"],
+    "finanzas": ["sistemas","tickets","pagos"]
+  };
+
+  // Usuario Principal = company
+  var principal_user = {
+    "operaciones": ["personas", "transacciones", "incidentes"], // Entro transacciones
+    "informacion": ["resultados", "dictamen", "tableros"], // Se fue pendientes
+    "maestros": ["entidades","encuestas","usuarios","funciones"], // Se va cuentas, partners
+    "finanzas": ["sistemas","tickets"] // Se va pagos
+  };
+
+  // Usuario Principal
+  var normal_user = {
+    "operaciones": ["personas", "transacciones", "incidentes"], // Entro transacciones
+    "informacion": ["resultados", "dictamen", "tableros"], // Se fue pendientes
+    "maestros": ["encuestas","usuarios","funciones"] // Se va cuentas, partners y entidades
+    // Se va finanzas
+  };
+
+  // Verificar el tipo de usuario y renderizar
+  switch ( currentUser.type ) {
+    case "superuser":
+      dataPermissions = super_user;
+      break;
+    case "company":
+      dataPermissions = principal_user;
+      break;
+    case "normal":
+      dataPermissions = normal_user;
+      break;
+    default:
+      dataPermissions = null;
   }
 
   renderInfo['currentUser'] = currentUser;
   renderInfo['dataPermissions'] = dataPermissions;
 
-  // console.log(renderInfo);
-  // console.log( JSON.stringify(renderInfo) );
+  // Iterador para verificar la llave
+  dust.helpers.iter = function(chunk, context, bodies, params) {
+    var obj = context.resolve(params.obj);
 
-  var loadStatus = dust.render('home-sidebar', renderInfo, function( err, output ) {
-    if ( err ) {
-      $('#rendered-sidebar').html("Ocurrió un trágico error");
-    } //if
-    else{
-      $('#rendered-sidebar').html("");
-      $('#rendered-sidebar').html(output);
-      $('.collapsible').collapsible();
-      $(".active-sidebar").sideNav({
-        menuWidth: 280,
-        edge: 'left',
-        closeOnClick: true,
-        draggable: true
-      }); // Barra lateral
-    } //else
-  });
+    var iterable = [];
+
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+
+        var value   = obj[key];
+        var iconID;
+
+        switch ( key ) {
+          case 'operaciones':
+            iconID  = 'settings';
+            break;
+          case 'informacion':
+            iconID  = 'info_outline';
+            break;
+          case 'maestros':
+            iconID  = 'work';
+            break;
+          case 'finanzas':
+            iconID  = 'attach_money';
+            break;
+          default:
+            iconID  = null;
+        }
+
+        // key[0]  = key[0].toUpperCase(); // Convertir la primera letra en mayúscula
+        iterable.push({
+          '$key': key,
+          '$value': value,
+          '$type': typeof value,
+          '$icon': iconID
+        });
+
+      }
+    }
+    // console.log( "Termino de iterar" );
+    return chunk.section(iterable, context, bodies);
+  };
+
+  return new Promise( function( resolve, reject ){
+
+    var loadStatus = dust.render('home-sidebar', renderInfo, function( err, output ) {
+      if ( err ) {
+        $('#rendered-sidebar').html("Ocurrió un trágico error");
+        reject('failed');
+      } //if
+      else{
+        $('#rendered-sidebar').html("");
+        $('#rendered-sidebar').html(output);
+        $('.collapsible').collapsible();
+        $(".active-sidebar").sideNav({
+          menuWidth: 280,
+          edge: 'left',
+          closeOnClick: true,
+          draggable: true
+        }); // Barra lateral
+
+        resolve('success');
+      } //else
+    });
+
+  }); // Promise
+
 }
 
 

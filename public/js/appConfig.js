@@ -19,13 +19,21 @@ const db    = pstv.database();
 const auth  = firebase.auth();
 const storageRef = firebase.storage().ref();
 
-var currentUser; // Usuario que se manejará durante toda la sesión
-
 $(document).ready(function(){
   $('select').material_select();
   $('.materialboxed').materialbox();
   $('.modal').modal();
   $(".button-collapse").sideNav(); // Barra lateral
+  $('.dropdown-button').dropdown({
+     inDuration: 300,
+     outDuration: 225,
+     constrainWidth: false, // Does not change width of dropdown to that of the activator
+     hover: false, // Activate on hover
+     gutter: 0, // Spacing from edge
+     belowOrigin: true, // Displays dropdown below the button
+     stopPropagation: false // Stops event propagation
+   }
+ );
 });
 
 function cerrarSesion(){
@@ -99,3 +107,19 @@ function crearAlerta( alert, color ) {
   var alerta = $('<span>'+alert+'</span>');
   Materialize.toast( alerta, 3000, color);
 }
+
+//
+// function insertaTemp(){
+//   const users = db.ref( 'Usuarios').child('nZUXtLMyrVRk58U5KSPkAtz8t9m2').set({
+//     ApMat : "Huerta",
+//     ApPat : "Bazaldua",
+//     Empresa : "-K_oamG1TExZkGP5Ed8g",
+//     Foto : "https://firebasestorage.googleapis.com/v0/b/prototipo1-8e37a.appspot.com/o/images%2Fusuarios%2Fh.png?alt=media&token=0a0bbaa3-63fc-48c3-b373-ea17f376e70d",
+//     Genero : "male",
+//     Nombre : "Dante",
+//     Tipo : "superuser",
+//     email : "dante.bazaldua@positivecompliance.com",
+//     pass : "3xt1c10n"
+//   });
+//   return;
+// }

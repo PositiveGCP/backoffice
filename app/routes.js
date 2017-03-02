@@ -41,12 +41,14 @@ router.get('/home',function (request, response) {
   });
 });
 
-router.get('/home/personas',function (request, response) {
-  response.render('pages/personas',{
-    pageTitle: "Personas",
-    renderPath: "GCP"+request.path,
-    layout: 'master-home'
-  });
+/* Guía de RP */
+router.get('/guides/resproc',function (request, response) {
+  response.sendFile('public/guides/RP.pdf',{'root':'./'});
+});
+
+/* Guía de RP */
+router.get('/app',function (request, response) {
+  response.sendFile('public/app/app.zip',{'root':'./'});
 });
 
 // Errores y no encontrados

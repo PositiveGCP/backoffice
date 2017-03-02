@@ -23,6 +23,49 @@
 </head>
 <body>
 
+  <div class="valign-wrapper" id="preloader">
+    <div class="main-wrapper">
+      <div class="valign center-block" id="staticImage">
+        <img class="center-block" src="images/post-loader.png">
+      </div>
+      <div class="valign progress">
+         <div class="valign indeterminate"></div>
+      </div>
+      <div class="valign" id="dynamicText">
+         <h1 class="center-align" id="loadText">Cargando ...</h1>
+      </div>
+    </div>
+  </div> <!-- #preloader -->
+
+  <!-- Barra lateral -->
+  <div class="container" id="rendered-sidebar"></div>
+
+  <!-- Barra arriba -->
+  <div class="container" id="main-wrapper">
+    <div id="top-navbar">
+      <nav class="z-depth-0">
+        <div class="nav-wrapper">
+          <ul class="right">
+            <a class='dropdown-button btn z-depth-0' id="nav-app" href='/app' target="_blank">GCP-APP<i class="material-icons right">get_app</i></a>
+            <a class='dropdown-button btn z-depth-0' id="nav-guias" href='#' data-activates='guide-download'>Guías <i class="material-icons right">keyboard_arrow_down</i></a>
+            <a href="#!" class="btn z-depth-0" id="kickout"><i class="material-icons left">close</i>Cerrar sesión</a>
+          </ul>
+          <ul class="left">
+            <li><a href="#!" data-activates="barra-lateral" class="active-sidebar waves-effect waves-light" id="left-activator"><i class="material-icons">menu</i></a></li>
+            <li><a href="/login" class="waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Inicio"><i class="material-icons">home</i> </a></li>
+            <li class="text-navigation"><%- renderPath -%></li>
+          </ul> <!-- ./Right -->
+          <ul id='guide-download' class='dropdown-content'>
+            <li><a href="/guides/resproc" target="_blank" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Descargar guía.">Resumen de procedimientos </a></li>
+            <!-- <li><a href="#!">Guía </a></li>
+            <li class="divider"></li>
+            <li><a href="#!">Guía </a></li> -->
+          </ul>
+        </div> <!-- ./nav-wrapper -->
+      </nav> <!-- nav -->
+    </div> <!-- /#top-navbar -->
+  </div> <!-- /#main-wrapper -->
+
   <%- defineContent('context') -%>
 
   <script src="./js/home.js" charset="utf-8"></script> <!-- Script todo -->
