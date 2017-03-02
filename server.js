@@ -2,6 +2,8 @@ var express         = require('express');
 var expressLayouts  = require('express-ejs-layouts');
 var bodyParser      = require('body-parser'); // Para poder leer JSON mediante request.
 var mailer          = require('nodemailer'); // Envio de correo electrónico
+var fs              = require('fs');
+
 
 var app = express();
 var port = 8080;
@@ -40,9 +42,6 @@ app.use('/home', express.static(__dirname + '/public'));
 // Use of statics
 app.use(express.static(__dirname + '/public')); //Carpeta de funcionamiento
 
-app.get('*', function(req, res){
-  res.redirect('/404');
-});
 
 // Registro-envio de correo
 app.post('/register-send-mail',function (request, response) {
@@ -55,6 +54,51 @@ app.post('/register-send-mail',function (request, response) {
   //   }
   //   console.log('Message %s sent: %s', info.messageId, info.response);
   // });
+});
+
+app.get('/users/type=:type',function(request, response){
+
+  fs.readFile('app/users.json','utf8',function( err, data ){
+      if (err) {
+        console.log( err );
+        response.redirect('/404');
+      }
+      var x = repartirInfo( JSON.parse(data), request.params.type );
+      if ( x == null ) {
+        response.redirect('/404');
+      }
+      else{
+        response.json( x );
+      }
+  });
+
+});
+
+function repartirInfo( data, mode ){
+  console.log( data );
+
+  var perm  = {};
+
+  perm['Operaciones'] = data['Operaciones'];
+  perm['Información'] = data['Información'];
+  perm['Maestros']    = data['Maestros'];
+
+  switch ( mode ) {
+    case "superuser":
+    case "company":
+      perm['Finanzas']  = data['Finanzas'];
+      break;
+    case "normal":
+      break;
+    default:
+      perm = null;
+  }
+
+  return perm;
+}
+
+app.get('*', function(req, res){
+  res.redirect('/404');
 });
 
 //Servidor

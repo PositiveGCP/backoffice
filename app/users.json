@@ -1,0 +1,18 @@
+{
+  "Operaciones":[
+    "images/operaciones.png",
+    "Dentro de este campo podrá administrar sus datos correspondientes a la información que maneja continuamente."
+  ],
+  "Información":[
+    "images/informacion.png",
+    "Tener a la mano la información más importante de su empresa, siempre será nuestra prioridad por tal motivo aquí se encuentra disponible."
+  ],
+  "Maestros":[
+    "images/maestros.png",
+    "La inversión que se está haciendo en estos momentos repercute de manera positiva en sus finanzas."
+  ],
+  "Finanzas":[
+    "images/finanzas.png",
+    "Controlar el flujo de efectivo y visualizar su patrón de comportamiento puede ser visto en esta opción."
+  ]
+}

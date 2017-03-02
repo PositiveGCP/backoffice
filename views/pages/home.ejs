@@ -1,3 +1,23 @@
 <%- contentFor('context') -%>
 
-<h1 class="center-align"> ¡Bienvenido! </h1>
+<div class="container" id="companyStatus">
+  <h1>Empresa: <span id="cpName"></span>.</h1>
+</div>
+
+<div class="valign-wrapper while">
+  <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="renderded_cards"></div>
+
+<script src="js/dashboard.js" charset="utf-8"></script>
+<script src="js/templates/home-dashboard.js" charset="utf-8"></script>

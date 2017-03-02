@@ -219,6 +219,7 @@ function defineAmbiente ( usuario, empresa ) {
             break;
           case 'informacion':
             iconID  = 'info_outline';
+            key = 'información'
             break;
           case 'maestros':
             iconID  = 'work';
@@ -261,7 +262,7 @@ function defineAmbiente ( usuario, empresa ) {
           closeOnClick: true,
           draggable: true
         }); // Barra lateral
-
+        // Poner el nombre de la empresa
         resolve('success');
       } //else
     });
@@ -270,6 +271,11 @@ function defineAmbiente ( usuario, empresa ) {
 
 }
 
+
+/*******************************************************
+ * kickout: Cerrar sesión.                             *
+ * @return: Ninguno                                    *
+ *******************************************************/
 
 $('#kickout').click(function(e){
   e.preventDefault();
