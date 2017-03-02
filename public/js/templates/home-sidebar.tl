@@ -22,7 +22,7 @@
             <div class="collapsible-body">
               <ul>
                 {#operaciones}
-                  <li><a href="/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
+                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
                 {/operaciones}
               </ul>
             </div>
@@ -37,7 +37,7 @@
             <div class="collapsible-body">
               <ul>
                 {#informacion}
-                  <li><a href="/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
+                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
                 {/informacion}
               </ul>
             </div>
@@ -52,7 +52,7 @@
             <div class="collapsible-body">
               <ul>
                 {#maestros}
-                  <li><a href="/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
+                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
                 {/maestros}
               </ul>
             </div>
@@ -67,7 +67,7 @@
             <div class="collapsible-body">
               <ul>
                 {#finanzas}
-                  <li><a href="/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
+                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {.}</a></li>
                 {/finanzas}
               </ul>
             </div>

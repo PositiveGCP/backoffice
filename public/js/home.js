@@ -22,26 +22,31 @@ auth.onAuthStateChanged(function(user) {
 
 function findInDB ( id ) {
 
-  const users = db.ref( 'Usuarios' ).orderByKey().equalTo( id );
+  const users = db.ref( 'Usuarios' ).orderByKey().equalTo( id ).limitToLast(1);
 
   var llave, info, empresa;
 
+  console.log(users);
+
   if ( users != null ){
 
-    users.on( "child_added", function( snapshot ){
+    users.on( 'child_added', function( snapshot ){
 
       llave = snapshot.key;
-      info = snapshot.val();
+      info  = snapshot.val();
 
       db.ref( 'Cuenta' ).child( info.Empresa ).on('value',function(snapshot){
-
+        console.log( snapshot );
         empresa = snapshot.val();
+        console.log( empresa );
+        console.log("Lo encontré!");
         defineAmbiente( info, empresa );
+
       });
     });
-
   }
   else{
+    crearAlerta("Ocurrió un grave error. Pregunte a administrador","black");
     auth.signOut(); // Cerrar sesión -> es una cuenta inexistente
     window.location.href = "/login";
   }

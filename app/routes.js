@@ -25,7 +25,6 @@ router.get('/',function (request, response) {
 
 // Pagina de registro
 router.get('/register',function( request, response ){
-  // console.log( request.route.path );
   response.render('pages/register',{
     pageTitle: 'Registro',
     title: 'Registro GCP',
@@ -37,6 +36,23 @@ router.get('/register',function( request, response ){
 router.get('/home',function (request, response) {
   response.render('pages/home',{
     pageTitle: "GCP BackOffice",
+    renderPath: "GCP"+request.path,
     layout: 'master-home'
+  });
+});
+
+router.get('/home/personas',function (request, response) {
+  response.render('pages/personas',{
+    pageTitle: "Personas",
+    renderPath: "GCP"+request.path,
+    layout: 'master-home'
+  });
+});
+
+// Errores y no encontrados
+router.get('/404',function (request, response) {
+  response.render('404',{
+    pageTitle: "Error",
+    layout: '404'
   });
 });

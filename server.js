@@ -41,7 +41,7 @@ app.use('/home', express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/public')); //Carpeta de funcionamiento
 
 app.get('*', function(req, res){
-  res.send('what???');
+  res.redirect('/404');
 });
 
 // Registro-envio de correo
