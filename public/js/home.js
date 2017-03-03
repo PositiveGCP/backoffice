@@ -27,8 +27,7 @@ auth.onAuthStateChanged( function( user ) {
             $('#loadText').html("Alineando planetas...");
             $('#preloader').delay(0).fadeOut('slow', function() {
               $(this).remove();
-            });
-            console.log("Terminó de renderizar "+success);
+            }); // Eliminar el loader
           }) // then
           .catch( function( reject ){
             console.error( reject );

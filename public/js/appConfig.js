@@ -1,7 +1,7 @@
 "use strict";
 
 // Afecta a toda la aplicación en cuanto a tener una versión en desarrollo y otra en producción
-const envMode = "development";
+const envMode = "production";
 
 // Initialize Firebase
 var appConfig = {

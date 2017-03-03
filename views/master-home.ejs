@@ -23,20 +23,7 @@
 </head>
 <body>
 
-  <div class="valign-wrapper" id="preloader">
-    <div class="main-wrapper">
-      <div class="valign center-block" id="staticImage">
-        <img class="center-block" src="images/post-loader.png">
-      </div>
-      <div class="valign progress">
-         <div class="valign indeterminate"></div>
-      </div>
-      <div class="valign" id="dynamicText">
-         <h1 class="center-align" id="loadText">Cargando ...</h1>
-      </div>
-    </div>
-  </div> <!-- #preloader -->
-
+  <% include partials/loader %>
   <!-- Barra lateral -->
   <div class="container" id="rendered-sidebar"></div>
 
@@ -68,6 +55,12 @@
 
   <%- defineContent('context') -%>
 
+  <script>
+    less = {
+      env: "production",
+      logLevel: 0,
+    };
+  </script>
   <script src="./js/home.js" charset="utf-8"></script> <!-- Script todo -->
   <script src="./js/templates/sidebar.js" charset="utf-8"></script> <!-- Script render barra lateral -->
   <script src="./bower_components/less/dist/less.js" charset="utf-8"></script> <!-- Less -->

@@ -18,7 +18,7 @@
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li>
-              <a class="collapsible-header waves-effect waves-blue">{$key}<i class="material-icons left">{$icon}</i></a>
+              <a class="collapsible-header waves-effect waves-blue">{$key}<i class="material-icons left">{$icon}</i><span class="badge new red">0</span></a>
               {@iter obj=$value}
                 <div class="collapsible-body">
                   {#$value}
@@ -31,26 +31,7 @@
             </li>
           </ul>
         </li>
-      </div>
+      </div> <!-- ./content-li -->
     {/iter}
-    {!}
-    {#dataPermissions}
-      {#.}
-      <div id="content-li">
-        <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">settings</i>{.}</a>
-            <div class="collapsible-body">
-              <ul>
-                  <li><a href="/home/{.}"><i class="material-icons">keyboard_arrow_right</i> {~n}</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-      {/.}
-    {/dataPermissions}
-    {!}
   </ul>
 </div>

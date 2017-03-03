@@ -75,7 +75,6 @@ app.get('/users/type=:type',function(request, response){
 });
 
 function repartirInfo( data, mode ){
-  console.log( data );
 
   var perm  = {};
 

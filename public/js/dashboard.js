@@ -11,11 +11,11 @@ auth.onAuthStateChanged( function( user ) {
     cargaDashboard
       .then( function( success ) {
         $('.while').remove();
-        console.log( success );
         renderDashboard( success ); // Renderizar el dashboard
       })
       .catch( function( err ) {
-        console.log( err );
+        crearAlerta( "Ocurrió un error" );
+        auth.signOut();
       })
   }
   else {
@@ -87,7 +87,7 @@ function renderDashboard( type ){
   $.ajax({
       type: 'get',
       url: '/users/type='+type,
-      success: function( data ){ 
+      success: function( data ){
         handleRsp( data )
       },
       error: function( req, xhr, err ){
@@ -99,7 +99,7 @@ function renderDashboard( type ){
 }
 
 function handleRsp( data ){
-  console.log( data );
+
   // Iterador para verificar la llave
   dust.helpers.iter = function(chunk, context, bodies, params) {
     var obj = context.resolve(params.obj);
@@ -125,11 +125,9 @@ function handleRsp( data ){
 
   var loadStatus = dust.render('home-dashboard', data, function( err, output ) {
     if ( err ) {
-      console.log( err );
       $('.renderded_cards').html("Ocurrió un trágico error");
     } //if
     else{
-      console.log( output );
       $('.renderded_cards').html("");
       $('.renderded_cards').html(output);
     } //else
