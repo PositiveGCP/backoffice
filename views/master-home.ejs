@@ -55,12 +55,42 @@
 
   <%- defineContent('context') -%>
 
+  <!-- Plantilla -->
+<%- defineContent('space'); -%>
+
+<div class="fixed-action-btn vertical">
+  <a id="menu" class="btn-floating btn-large red scale-transition scale-out">
+    <i class="large material-icons">menu</i>
+  </a>
+  <%- defineContent('space_butt'); -%>
+</div>
+
+<div id="modal1" class="modal bottom-sheet modal-fixed-footer"></div>
+
+<div id="modal2" class="modal">
+<div class='modal-content'>
+  <h3>Modificar información</h3>
+  <p>¿Deseas realmente modificar la información?. Esto podría tener costos.</p>
+</div>
+<div class='modal-footer'>
+  <a class='modal-action modal-close waves-effect waves-green btn-flat' id="modal2_footer_firsta" onclick="doIt( generic )">Continuar</a>
+  <a class='modal-action modal-close waves-effect waves-red btn-flat' onclick='mayNot()'>Cancelar</a>
+</div>
+</div>
+
+<div id="modal-trn" class="modal bottom-sheet">
+ <div class="modal-content">
+  <ul class="collection" id="modal3"></ul>
+ </div>
+</div>
+
   <script>
     less = {
       env: "production",
       logLevel: 0,
     };
   </script>
+    <%- defineContent('space_scr'); -%>
   <script src="./js/home.js" charset="utf-8"></script> <!-- Script todo -->
   <script src="./js/templates/sidebar.js" charset="utf-8"></script> <!-- Script render barra lateral -->
   <script src="./bower_components/less/dist/less.js" charset="utf-8"></script> <!-- Less -->

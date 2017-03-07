@@ -1,0 +1,29 @@
+<%- contentFor('nav_space'); %>
+<!-- Verificar funcionamiento en otros-->
+  <div class="nav-wrapper">
+    <div class="input-field">
+      <input id="search" type="search" required>
+      <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+      <i class="material-icons">close</i>
+    </div>
+  </div>
+
+<%- contentFor('space'); %>
+
+    <div class="container col s12">
+      <h2 class="center">Pendientes</h2>
+      <p class="center">Transacciones cuyos resultados aún estan pendientes por procesar, el tiempo de espera de los resultados de Positive es de 1 hr.</p>
+    </div>
+    <br>
+    <div class="container col s12">
+      <div class="collection" id="content-wrapper"></div>
+    </div>
+
+<%- contentFor('space_butt'); %>
+
+<%- contentFor('space_scr'); %>
+
+    <!-- Cargar archivos de funcionamiento individual en caso de que quiera hacer ma cambios-->
+
+    <script src="./js/pendientes.js" charset="utf-8"></script>
+    <script src="./js/templates/pendiente.js" charset="utf-8"></script>

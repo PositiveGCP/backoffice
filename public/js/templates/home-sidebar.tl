@@ -23,7 +23,7 @@
                 <div class="collapsible-body">
                   {#$value}
                   <ul>
-                      <li><a href="/home/{.}">{.}<i class="material-icons left">keyboard_arrow_right</i></a></li>
+                      <li><a href="/{.}">{.}<i class="material-icons left">keyboard_arrow_right</i></a></li>
                   </ul>
                   {/$value}
                 </div>

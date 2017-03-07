@@ -41,6 +41,62 @@ router.get('/home',function (request, response) {
   });
 });
 
+router.get('/personas',function (request, response) {
+  response.render('pages/personas',{
+    pageTitle: "GCP BackOffice",
+    renderPath: "GCP"+request.path,
+    layout: 'master-home'
+  });
+});
+
+router.get('/usuarios',function (request, response) {
+  response.render('pages/usuarios',{
+    pageTitle: "GCP BackOffice",
+    renderPath: "GCP"+request.path,
+    layout: 'master-home'
+  });
+});
+
+router.get('/pendientes',function (request, response) {
+  response.render('pages/pendientes',{
+    pageTitle: "GCP BackOffice",
+    renderPath: "GCP"+request.path,
+    layout: 'master-home'
+  });
+});
+
+router.get('/resultados',function (request, response) {
+  response.render('pages/resultados',{
+    pageTitle: "GCP BackOffice",
+    renderPath: "GCP"+request.path,
+    layout: 'master-home'
+  });
+});
+
+router.get('/partners',function (request, response) {
+  response.render('pages/partners',{
+    pageTitle: "GCP BackOffice",
+    renderPath: "GCP"+request.path,
+    layout: 'master-home'
+  });
+});
+
+router.get('/entidades',function (request, response) {
+  response.render('pages/entidades',{
+    pageTitle: "GCP BackOffice",
+    renderPath: "GCP"+request.path,
+    layout: 'master-home'
+  });
+});
+
+router.get('/cuentas',function (request, response) {
+  response.render('pages/cuentas',{
+    pageTitle: "GCP BackOffice",
+    renderPath: "GCP"+request.path,
+    layout: 'master-home'
+  });
+});
+
 /* Guía de RP */
 router.get('/guides/resproc',function (request, response) {
   response.sendFile('public/guides/RP.pdf',{'root':'./'});

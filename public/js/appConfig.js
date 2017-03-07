@@ -14,10 +14,20 @@ var appConfig = {
 
 const pstv  = firebase.initializeApp( appConfig );
 const sApp  = firebase.initializeApp( appConfig, "Secondary");
+var secondaryApp = sApp;
 
 const db    = pstv.database();
+const usr = db.ref('Usuarios');
 const auth  = firebase.auth();
 const storageRef = firebase.storage().ref();
+
+var male = "https://firebasestorage.googleapis.com/v0/b/prototipo1-8e37a.appspot.com/o/images%2Fusuarios%2Fh.png?alt=media&token=0a0bbaa3-63fc-48c3-b373-ea17f376e70d";
+var female = "https://firebasestorage.googleapis.com/v0/b/prototipo1-8e37a.appspot.com/o/images%2Fusuarios%2Fm.png?alt=media&token=11870553-a5d2-4993-9010-23bec3edebd1";
+var info;
+var uid;
+var fotografia = null, logotipo = null;
+var metfoto = null, metlogo = null;
+var _URL = window.URL || window.webkitURL;
 
 $(document).ready(function(){
   $('select').material_select();

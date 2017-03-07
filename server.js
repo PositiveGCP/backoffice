@@ -6,7 +6,7 @@ var fs              = require('fs');
 
 
 var app = express();
-var port = 8080;
+var port = 3000;
 
 app.set('view engine','ejs');
 app.use( expressLayouts );
@@ -102,6 +102,6 @@ app.get('*', function(req, res){
 
 //Servidor
 app.listen(port, function () {
-  console.log("Inicializado");
-  console.log("Escuchando en puerto 8080");
+  console.log("Inicializado Backoffice");
+  console.log("Escuchando en puerto 3000");
 });

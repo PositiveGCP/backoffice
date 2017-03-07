@@ -1,0 +1,30 @@
+<%- contentFor('space'); %>
+
+    <div class="container col s12">
+      <h2 class="center">Cuentas</h2>
+      <p class="center">Cuenta oficial de una empresa afiliada a Positive, una vez regstrada, esta podra realizar las evaluaciones pertinentes y administrar a sus usuarios, al dar de alta una cuenta es necesario designar un primer usuario principal de la misma.</p>
+    </div>
+    <div class="container col s12">
+      <div class="input-field col s12">
+        <input id="search" type="search" required>
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </div>
+    <br>
+    <div class="container col s12">
+      <div class="collection" id="content-wrapper"></div>
+    </div>
+
+<%- contentFor('space_butt'); %>
+
+    <ul>
+      <li><a class="btn-floating red darken-2 btn tooltipped" data-position="left" data-delay="50" data-tooltip="Alta de Cuentas" id="altas"><i class="material-icons">add</i></a></li>
+    </ul>
+
+<%- contentFor('space_scr'); %>
+
+    <!-- Cargar archivos de funcionamiento individual en caso de que quiera hacer ma cambios-->
+
+    <script src="./js/account.js" charset="utf-8"></script>
+    <script src="./js/templates/account.js" charset="utf-8"></script>
