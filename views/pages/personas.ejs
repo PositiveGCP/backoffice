@@ -1,10 +1,13 @@
 
 <%- contentFor('space'); %>
 
-    <div class="container col s12">
-      <h2 class="center">Personas</h2>
-      <p class="center">Las personas son todos aquellos empleados que quieran ser evaluados con el sistema GCP. Aqui solo podrás encontrar informacion de la personas para modificarla, o bien dar de alta nuevas personas, es importante mencionar que esta ultima algún costo.</p>
-    </div>
+<div class="container" id="companyStatus">
+  <br>
+  <h1 style="font-size:45px !important;"><span>Personas</span></h1>
+  <p style="padding: 0 38px 0 35px;">Las personas son todos aquellos empleados que quieran ser evaluados con el sistema GCP. Aqui solo podrás encontrar informacion de la personas para modificarla, o bien dar de alta nuevas personas, es importante mencionar que esta ultima algún costo.</p>
+  <br>
+</div>
+
     <div class="container col s12">
       <div class="input-field col s12">
         <input id="search" type="search" required>
@@ -13,7 +16,7 @@
       </div>
     </div>
     <br>
-    <div class="container col s12">
+    <div class="container col s12" id="content-in">
       <div class="collection" id="content-wrapper"></div>
     </div>
 

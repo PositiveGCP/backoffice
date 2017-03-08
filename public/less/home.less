@@ -285,3 +285,53 @@ span.badge.new:after{
     }
   }
 }
+// Para poder modificar las colecciones
+#content-in{
+  width: 90% !important;
+  .collection{
+    a.collection-item{
+      .gbTransition( 0.5s );
+      color: #333 !important;
+      h6{
+        font-weight: 300;
+      }
+    }
+    .collection-item:hover{
+      background-color: darken(#d9d9d9, -12%);
+      h6{
+        font-weight: 500;
+      }
+    }
+  }
+}
+// Unicamente para mostrar promedios en el apartado de resultados
+#prom-res{
+  font-size: 20px;
+  font-style: italic;
+}
+#modal-trn{
+  .collection{
+    a.collection-item{
+      .gbTransition( 0.5s );
+      color: #333 !important;
+      h6{
+        font-weight: 300;
+      }
+      i{
+        color: #57db54 !important;
+      }
+    }
+    .collection-item:hover{
+      background-color: darken(#d9d9d9, -12%);
+      h6{
+        font-weight: 500;
+      }
+    }
+  }
+}
+// Cuanto tienen valor, cuando valen 0
+#per-res, #per-res2{
+  font-weight: 600 !important;
+  font-size: 20px;
+  font-style: italic;
+}

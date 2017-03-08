@@ -1,10 +1,13 @@
 
 <%- contentFor('space'); %>
 
-    <div class="container col s12">
-      <h2 class="center">Usuarios</h2>
-      <p class="center">Serán los administardores de las cuentas de empresas dentro del sistema, debe haber como minimo un usuario principal en cada cuenta, el cual debe poseer previamente un correo electronico..</p>
-    </div>
+<div class="container" id="companyStatus">
+  <br>
+  <h1 style="font-size:45px !important;"><span>Usuarios</span></h1>
+  <p style="padding: 0 38px 0 35px;">Serán los administardores de las cuentas de empresas dentro del sistema, debe haber como mínimo un usuario principal en cada cuenta, el cual debe poseer previamente un correo electronico.</p>
+  <br>
+</div>
+
     <div class="container col s12">
       <div class="input-field col s12">
         <input id="search" type="search" required>
@@ -13,7 +16,7 @@
       </div>
     </div>
     <br>
-    <div class="container col s12">
+    <div class="container col s12" id="content-in">
       <div class="collection" id="content-wrapper"></div>
     </div>
 

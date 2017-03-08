@@ -45,8 +45,12 @@ if ( info.Tipo == "superuser" ) {
   $('#menu').removeClass('scale-out');
   $('#menu').addClass('scale-in');
     db.ref('Cuenta').on("child_added", function (snapshot) {
+      console.log( snapshot.key );
       if (snapshot.key != '-K_oamG1TExZkGP5Ed8g' && snapshot.val().tipo != 'Empresa Positive' && snapshot.val().tipo != 'Positive') {
-        getArray(snapshot,"view");
+        // Dante left his hand here...
+        if ( info.Empresa == snapshot.val().entidad[0] ) {
+          getArray(snapshot,"view");
+        } // if 
       }
     });
   } else {

@@ -52,25 +52,41 @@ function infoPerm() {
   }
 }
 
-function getArray(snapshot) {
+var avg1 = {};
+var arrayOfArray = {};
 
-    var array = {
-      id: snapshot.key,
-      image: snapshot.val().Logotipo,
-      name: snapshot.val().NComercial,
-      social: snapshot.val().RSocial,
-      pais: snapshot.val().Pais,
-      type: snapshot.val().tipo,
-    };
+// Dante metió muuucha mano en esta última
+function getArray( snapshot ) {
 
-    showInfo(array);
+  arrayTemp = {};
+  arrayTemp = {
+    id: null,
+    image: null,
+    name: null,
+    social: null,
+    pais: null,
+    type: null,
+    avg: null
+  };
+
+  arrayTemp['id']       = snapshot.key,
+  arrayTemp['image']    = snapshot.val().Logotipo,
+  arrayTemp['name']     = snapshot.val().NComercial,
+  arrayTemp['social']   = snapshot.val().RSocial,
+  arrayTemp['pais']     = snapshot.val().Pais,
+  arrayTemp['type']     = snapshot.val().tipo
+  arrayTemp['avg']     = 0;
+
+  arrayOfArray[ snapshot.key ] = arrayTemp;
+
+  showInfo( arrayTemp );
 }
 
 db.ref('Transfer').on("child_changed",function (snapshot) {
-  averaGe(snapshot.val().key_empresa);
+  averaGe( snapshot.val().key_empresa ) ;
 });
 
-function averaGe(key) {
+function averaGe( key ) {
   var div = document.getElementById('id['+key+']');
   var li = div.querySelectorAll('H6');
   var list = li[li.length-2];
@@ -88,8 +104,7 @@ function averaGe(key) {
         i++;
         res = res + snapshot.val().resultado;
         prom = res/i;
-
-        list.appendChild(document.createTextNode('Promedio: '+prom));
+        list.appendChild(document.createTextNode( prom )); // TODO: Aquí modifico Dante
     }
   });
 }
@@ -103,6 +118,7 @@ function notNull(val) {
 }
 
 function showInfo(array) {
+  // console.log( avg1 );
   dust.render('inc', {array} , function( error, output ) {
     if (error) {
       $('#content-wrapper').append("Error");
