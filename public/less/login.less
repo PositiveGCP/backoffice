@@ -3,6 +3,11 @@ body,
   min-height: 100vh;
   height: 100vh;
   overflow-y: hidden;
+  background:
+    url('../images/ex.png') top left,
+    #f6f6f6;
+    // linear-gradient(rgb(237, 237, 237), rgb(255, 255, 255)),
+    // white;
 }
 .alignElement {
   display: flex;
@@ -34,16 +39,12 @@ body,
 }
 #register-space #information {
   color: #444444;
-  padding: 30px;
-  h3,h6{
-    font-variant: small-caps;
-  }
 }
 #register-space #information h3 {
-  font-size: 60px;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 30px;
   font-weight: 300;
-  line-height: 40px;
-  margin-top: 100px;
 }
 #register-space #information h6 {
   font-size: 17px;
@@ -64,11 +65,22 @@ body,
     color: #fff;
   }
 }
+#register-space{
+  #information{
+    margin-top: 10%;
+    img{
+      display: block;
+      height: 100px;
+      width: 100px;
+      margin: auto;
+    }
+  }
+}
 #register-space #register {
-  width: 50%; // En caso de querer que esté enmedio y pequeño
+  width: 40%; // En caso de querer que esté enmedio y pequeño
   padding: 0px 60px 0px 60px;
   label{
-    font-variant: small-caps;
+    // font-variant: small-caps; // Quitar las versalitas
   }
 }
 #register-space #register #email .active,
@@ -78,8 +90,17 @@ body,
 }
 #register-space{
   #register #email, #password{
-    #email-input, label{
+    label{
+      font-size: 12px;
+      display: block;
       font-weight: 300;
+    }
+    #passwd-input{
+      display: block;
+    }
+    input{
+      font-weight: 400;
+      font-size: 14px;
     }
   }
 }
@@ -93,7 +114,7 @@ body,
 #register-space #register #email input:visited,
 #register-space #register #password input:visited,
 #password-recover #email-recovery input:visited, {
-  border: 0px solid #282828;
+  border-bottom: 1px solid #282828;
   box-shadow: 0 0.5px 0 0 #282828;
   padding: 0px 0px 0px 5px;
   margin-top: 5px;
@@ -107,61 +128,44 @@ body,
   justify-content: center;
 }
 #register-space #send button {
-  height: 40px;
+  height: 30px;
+  width: 50%;
   border-radius: 40px;
-  border: 2px solid #3476c3;
-  background: transparent;
-  color: #3476c3;
+  background-color: #257cff;
+  color: #fff;
   margin-bottom: 10px;
   .gbTransition( 0.2s );
+  font-size: 12px;
+  line-height: 0px;
+  letter-spacing: 0.3em;
+  margin: 20px 0px 20px 0px;
 }
 #register-space #send button:hover{
-  background-color: #3476c3;
-  color: #fff;
+  background-color: #626262;
 }
-#register-space #forget-pass{
+#register-space #last-options{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
-}
-#register-space #forget-pass a {
-  color: #545454;
-}
-#register-space #forget-pass .chip {
-  border: 2px solid #262626;
-  background: transparent;
-  height: 35px;
-  .gbTransition( 0.3s );
-}
-#register-space #forget-pass .chip:hover {
-  background: #262626;
-}
-#register-space #forget-pass .chip:hover a{
-  color: #fff;
-}
-#register-form, #forget-pass{
-  font-variant: small-caps;
-}
-#register-space #register-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  a{
-    font-size: 16px !important;
-    color: #3dbf69;
-  }
-  .chip{
-    border: 2px solid #3dbf69;
+  .chip {
+    width: 40%;
+    border-radius: 0px;
+    border-bottom: 1.8px solid #30a2ff;
     background: transparent;
-    height: 35px;
-    .gbTransition( 0.3s );
-  }
-  .chip:hover{
-    background: #3dbf69;
-    a{
-      color: #fff;
+    .gbTransition( 0.2s );
+    text-align: center;
+    margin: 10px;
+    a {
+      font-size: 12px;
+      font-weight: 300;
+      color: #757575;
     }
+  }
+  .chip:hover {
+    border-bottom: 0px;
+  }
+  font-variant: small-caps;
+  .register-form{
+    border-bottom: 1.8px solid #18c37b;
   }
 }
