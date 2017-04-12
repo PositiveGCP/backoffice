@@ -5,51 +5,52 @@ const envMode = "production";
 
 // Initialize Firebase
 var appConfig = {
-  apiKey: "AIzaSyAT7spVMFGob7q6Q1UJCaMi6RvGoMBgcAc",
-  authDomain: "prototipo1-8e37a.firebaseapp.com",
-  databaseURL: "https://prototipo1-8e37a.firebaseio.com",
-  storageBucket: "prototipo1-8e37a.appspot.com",
-  messagingSenderId: "856846236373"
+    apiKey: "AIzaSyAT7spVMFGob7q6Q1UJCaMi6RvGoMBgcAc",
+    authDomain: "prototipo1-8e37a.firebaseapp.com",
+    databaseURL: "https://prototipo1-8e37a.firebaseio.com",
+    storageBucket: "prototipo1-8e37a.appspot.com",
+    messagingSenderId: "856846236373"
 };
 
-const pstv  = firebase.initializeApp( appConfig );
-const sApp  = firebase.initializeApp( appConfig, "Secondary");
+const pstv = firebase.initializeApp(appConfig);
+const sApp = firebase.initializeApp(appConfig, "Secondary");
 var secondaryApp = sApp;
 
-const db    = pstv.database();
+const db = pstv.database();
 const usr = db.ref('Usuarios');
-const auth  = firebase.auth();
+const auth = firebase.auth();
 const storageRef = firebase.storage().ref();
 
 var male = "https://firebasestorage.googleapis.com/v0/b/prototipo1-8e37a.appspot.com/o/images%2Fusuarios%2Fh.png?alt=media&token=0a0bbaa3-63fc-48c3-b373-ea17f376e70d";
 var female = "https://firebasestorage.googleapis.com/v0/b/prototipo1-8e37a.appspot.com/o/images%2Fusuarios%2Fm.png?alt=media&token=11870553-a5d2-4993-9010-23bec3edebd1";
 var info;
 var uid;
-var fotografia = null, logotipo = null;
-var metfoto = null, metlogo = null;
+var fotografia = null,
+    logotipo = null;
+var metfoto = null,
+    metlogo = null;
 var _URL = window.URL || window.webkitURL;
 
-$(document).ready(function(){
-  $('select').material_select();
-  $('.materialboxed').materialbox();
-  $('.modal').modal();
-  $(".button-collapse").sideNav(); // Barra lateral
-  $('.dropdown-button').dropdown({
-     inDuration: 300,
-     outDuration: 225,
-     constrainWidth: false, // Does not change width of dropdown to that of the activator
-     hover: false, // Activate on hover
-     gutter: 0, // Spacing from edge
-     belowOrigin: true, // Displays dropdown below the button
-     stopPropagation: false // Stops event propagation
-   }
- );
+$(document).ready(function() {
+    $('select').material_select();
+    $('.materialboxed').materialbox();
+    $('.modal').modal();
+    $(".button-collapse").sideNav(); // Barra lateral
+    $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: true, // Displays dropdown below the button
+        stopPropagation: false // Stops event propagation
+    });
 });
 
-function cerrarSesion(){
-  firebase.auth().signOut().then(function() {
-    window.location.href = "/login";
-  });
+function cerrarSesion() {
+    firebase.auth().signOut().then(function() {
+        window.location.href = "/login";
+    });
 }
 
 /*******************************************
@@ -73,36 +74,38 @@ function cerrarSesion(){
  * - clearText: El texto ingresado.        *
  *******************************************/
 
-function stringCheck( string, path ){
-  var opt  = path == true ? path : false;
-  var spaces = 0, paths = 0, empty = 0;
-  var regPath = /(\/\w+)+/g;
+function stringCheck(string, path) {
+    var opt = path == true ? path : false;
+    var spaces = 0,
+        paths = 0,
+        empty = 0;
+    var regPath = /(\/\w+)+/g;
 
-  var temp = string;
+    var temp = string;
 
-  if ( string == "" )
-    empty = 1;
-  if ( string.indexOf(' ') >= 0 )
-    spaces = 1;
-  if ( temp.match(regPath) != null )
-    paths = 1;
+    if (string == "")
+        empty = 1;
+    if (string.indexOf(' ') >= 0)
+        spaces = 1;
+    if (temp.match(regPath) != null)
+        paths = 1;
 
-  if ( opt == false ) {
-    if ( empty == 1 )
-      return "notString";
-    if ( spaces == 1 )
-      return "spaceFormat";
-    if ( paths == 1)
-      return "pathFormat";
-  } // if
-  else{
-    if ( empty == 1 )
-      return "notString";
-    if ( spaces == 1 )
-      return "spaceFormat";
-  } // else
+    if (opt == false) {
+        if (empty == 1)
+            return "notString";
+        if (spaces == 1)
+            return "spaceFormat";
+        if (paths == 1)
+            return "pathFormat";
+    } // if
+    else {
+        if (empty == 1)
+            return "notString";
+        if (spaces == 1)
+            return "spaceFormat";
+    } // else
 
-  return string;
+    return string;
 }
 
 /*******************************************
@@ -113,9 +116,9 @@ function stringCheck( string, path ){
  * @return: Ninguno                        *
  *******************************************/
 
-function crearAlerta( alert, color ) {
-  var alerta = $('<span>'+alert+'</span>');
-  Materialize.toast( alerta, 3000, color);
+function crearAlerta(alert, color) {
+    var alerta = $('<span>' + alert + '</span>');
+    Materialize.toast(alerta, 3000, color);
 }
 
 //

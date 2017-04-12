@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Reporte GCP </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilos.css">
+    <script type="text/javascript" src="jspdf.min.js"></script>
+    <script type="text/javascript">
+        function genPDF() {
+            html2canvas(document.body, {
+                onrendered: function(canvas) {
+                    var img = canvas.toDataURL("image/jpeg");
+                    var doc = new jsPDF({
+                        orientation: 'portrait',
+                        unit: 'in',
+                        format: [14, 8.5]
+                    });
+                    doc.addImage(img, 'JPEG', 0, 0);
+                    doc.save("Reporte.pdf"); /*NOMBRE DEL PDF*/
+                }
+            });
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container1">
+
+        <div class="redondo">
+        </div>
+        <!--/redondo-->
+
+        {#array}
+        <!--SOLO LO QUE ESTA EN LLAVES ES LO QUE TIENE QUE CAMBIAR-->
+        <div class="luna">
+            <h2 class="hlunacentrar"> {nombre} </h2>
+            <!--NOMBRE-->
+            <h3 class="hluna"> Id: {id} </h3>
+            <!--ID-->
+        </div>
+        <!--/luna-->
+
+        <div class="box">
+            <h2 class="hblancocentrar"> {puesto_a_aplicar} </h2>
+            <!--PUESTO A APLICAR-->
+            <h3 class="hblanco"> CEV: Arboledas </h3>
+            <!--CENTRO DE EVALUACION:-->
+        </div>
+        <!--/box-->
+
+        <div class="logo">
+            <img class="logo1" alt="No cargo" src="west.jpg">
+            <!--FIJO-->
+        </div>
+        <!--/logo-->
+    </div>
+    <!--/container1-->
+
+    <div class="hoja">
+
+        <div class="container2">
+
+            <div class="cabeza1">
+                <h3 class="hblancocentrar2"> Datos del Evaluado </h3>
+                <!--FIJO-->
+                <br /><br />
+
+                <table class="tabla1">
+                    <tbody>
+                        <tr class="especial">
+                            <td class="td1">&nbsp;Fecha de Alta</td>
+                            <!--FIJO-->
+                            <td class="td1">&nbsp;{fecha_de_alta}</td>
+                            <!--FECHA DE ALTA-->
+                        </tr>
+                        <tr class="especial">
+                            <td class="td1">&nbsp;Correo Electr&oacute;nico</td>
+                            <!--FIJO-->
+                            <td class="td1">&nbsp;{correo}</td>
+                            <!--CORREO-->
+                        </tr>
+                        <tr class="especial">
+                            <td class="td1">&nbsp;T&eacute;lefono M&oacute;vil</td>
+                            <!--FIJO-->
+                            <td class="td1">&nbsp;{telefono}</td>
+                            <!--TELEFONO-->
+                        </tr>
+                        <tr class="especial">
+                            <td class="td1">&nbsp;Sexo, Edad</td>
+                            <!--FIJO-->
+                            <td class="td1">&nbsp;{sexo} ({edad} A&ntilde;os)</td>
+                            <!--SEXO,EDAD-->
+                        </tr>
+                        <tr class="especial">
+                            <td class="td1">&nbsp;Tiempo de Ingreso</td>
+                            <!--FIJO-->
+                            <td class="td1">&nbsp;{tiempo_de_ingreso}</td>
+                            <!--TIEMPO DE INGRESO-->
+                        </tr>
+                    </tbody>
+                </table>
+                <!--/tabla1-->
+                <!--/Hasta aqui van las personas de  FIREBASE-->
+
+                <!--SOLO LO QUE ESTA EN LLAVES ES LO QUE TIENE QUE CAMBIAR-->
+                <table class="tabla2">
+                    <tr>
+                        <td colspan="2" style="width: 100%;" class="td2">&nbsp;Entidad en contrato:</td>
+                        <!--FIJO-->
+                    </tr>
+                    <tr>
+                        <td style="width: 30%;" class="td2">&nbsp;
+                            <div>
+                                <!--visas-->
+                                <img class="logo2" alt="No cargo" src="{logo}">
+                                <!--FIJO-->
+                            </div>
+                            <!--/visas-->
+                        </td>
+                        <td style="width: 70%;" class="td2">&nbsp;
+                            <div class="box2">
+                                <h3 class="hblanco2centrar"> {empresa} </h3>
+                                <!--FIJO-->
+                                <h4 class="hblanco2"> RFC: {rfc} </h4>
+                                <!--VISAS DE TRABAJO-->
+                            </div>
+                            <!--/box2-->
+                        </td>
+                    </tr>
+                </table>
+                <!--/tabla2-->
+                {/array}
+                <!--/Hasta aqui va la entidad de contrato de FIREBASE-->
+
+            </div>
+            <!--/cabeza1-->
+
+            <div class="cabeza2">
+                <h3 class="hblancocentrar2"> Desempe&ntilde;o y Estad&iacute;sticas de Cumplimiento </h3>
+                <!--FIJO-->
+
+                <br /><br />
+
+                <div>
+                    <!--255-->
+                    <h1 id="numerote">255</h1>
+                    <!--SCORE TOTAL-->
+                </div>
+                <!--/255-->
+
+                <div>
+                    <!--/seccion2-->
+
+                    <table class="tabla3">
+                        <thead>
+                            <tr>
+                                <th class="t60">&nbsp;<b>&Aacute;rea</b></th>
+                                <!--FIJO-->
+                                <th class="numcentrar40">&nbsp;<b> Score</b></th>
+                                <!--FIJO-->
+                            </tr>
+                        </thead>
+                        <tr class="especial">
+                            <td>&nbsp;Integridad</td>
+                            <!--FIJO-->
+                            <td class="excelente">&nbsp;95</td>
+                            <!--SCORE INTEGRIDAD-->
+                        </tr>
+                        <tr class="especial">
+                            <td>&nbsp;Temas</td>
+                            <!--FIJO-->
+                            <td class="bien">&nbsp;70</td>
+                            <!--SCORE TEMAS-->
+                        </tr>
+                        <tr class="especial">
+                            <td>&nbsp;Socioecon&oacute;mico</td>
+                            <!--FIJO-->
+                            <td class="regular">&nbsp;65</td>
+                            <!--SCORE SOCIOECONOMICO-->
+                        </tr>
+                        <tr class="especial">
+                            <td>&nbsp;Aptitudes</td>
+                            <!--FIJO-->
+                            <td class="carente">&nbsp;30</td>
+                            <!--SCORE APTITUDES-->
+                        </tr>
+                    </table>
+                    <!--/table3-->
+
+                    <div>
+                        <!--Score-->
+                        <h4 id="scorecentrar">Score Total por Desempe&ntilde;o</h4>
+                        <!--FIJO-->
+                        <h4 id="score">de &Eacute;tica y Cumplimiento.</h4>
+                        <!--FIJO-->
+                    </div>
+                    <!--/Score-->
+
+                    <div>
+                        <!--Test-->
+                        <h4 id="textid"> Test ID: 1002565854</h4>
+                        <!--TEST ID-->
+                    </div>
+                    <!--/Test-->
+
+                    <table class="tabla4" style="width: 100%;">
+                        <tr class="especial">
+                            <td class="td1" style="width: 35%;">&nbsp;Por Posici&oacute;n</td>
+                            <!--FIJO-->
+                            <td class="td1" style="width: 65%;">&nbsp;<strong>87</strong> de 250 ( Operador )</td>
+                            <!--RANKING EN RESULTADOS DEL PUESTO-->
+                        </tr>
+                        <tr class="especial">
+                            <td class="td1" style="width: 35%">&nbsp;Por Localidad</td>
+                            <!--FIJO-->
+                            <td class="td1" style="width: 65%">&nbsp;<strong>257</strong> de 5,000 ( M&eacute;xico )</td>
+                            <!--RANKING EN TODA LA LOCALIDAD-->
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="width: 100%;">
+                                <h6>&nbsp;* Las estad&iacute;sticas de
+            Posici&oacute;n y Localidad indican el desempe&ntilde;o de &Eacute;tica y
+            Cumplimiento conforme a la informaci&oacute;n disponible en el momento del
+            proceso de sus resultados.</h6></td>
+                            <!--FIJO-->
+                        </tr>
+                    </table>
+                    <!--/Tabla4-->
+                </div>
+                <!--/cabeza2-->
+
+            </div>
+            <!--/Seccion2-->
+
+            <div class="cabeza3">
+                <h3 class="hblancocentrar"> Desmpe&ntilde;o por Temas </h3>
+                <!--FIJO-->
+            </div>
+            <!--/Cabeza3-->
+
+            <!--GRAFICA DE BARRAS-->
+            <div class="grafica">
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script type="text/javascript">
+                    google.charts.load('current', {
+                        packages: ['corechart']
+                    });
+                </script>
+                <div id="container" style="width: 500px; height: 280px; margin: 0 auto;b<background-color: "></div>
+                <script>
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                            ['Valor', 'Density', {
+                                role: 'annotation'
+                            }, {
+                                role: "style"
+                            }, ],
+                            ['62 / Suficiente', 62, 'Integridad', "#31446C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['78 / Bien', 78, 'Lealtad', "#31446C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['73 / Bien', 73, 'Vinculacion', "#31446C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['36 / Parcial', 36, 'Bienes', "#CA6C2C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['74 / Bien', 74, 'Consumos', "#CA6C2C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['62 / Suficiente', 62, 'Estafa', "#CA6C2C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['61 / Suficiente', 61, 'Antecedentes', "#98741C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['66 / Bien', 66, 'Datos Generales', "#98741C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['59 / Suficiente', 59, 'Info. Domiciliaria', "#98741C"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                            ['65 / Suficiente', 65, 'Adaptacion', "#71A543"], /*SCORE/PARAMETROS, SCORE, VALORES, COLOR*/
+                        ]);
+
+                        var options = {
+                            width: 500,
+                            height: 280,
+                            bar: {
+                                groupWidth: "95%"
+                            },
+                            legend: {
+                                position: "none"
+                            },
+                        };
+
+                        var chart = new google.visualization.BarChart(document.getElementById('container'));
+                        chart.draw(data, options);
+                    }
+                    google.charts.setOnLoadCallback(drawChart);
+                </script>
+                <div id="columnchart_values" style="width: 500px; height: 280px;"></div>
+            </div>
+            <!--/GRAFICA DE BARRAS-->
+
+            <div class="cabeza4">
+                <h3 class="hblancocentrar"> Gu&iacute;a de P&aacute;rametros * </h3>
+                <!--FIJO-->
+
+                <table class="tabla5">
+                    <thead>
+                        <tr>
+                            <th class="t70">&nbsp;<b> Desempe&ntilde;o</b></th>
+                            <!--FIJO-->
+                            <th class="numcentrar30">&nbsp;<b> Score</b></th>
+                            <!--FIJO-->
+                        </tr>
+                    </thead>
+                    <tr class="especial">
+                        <td class="td1">&nbsp;Excelente</td>
+                        <!--FIJO-->
+                        <td class="excelente">&nbsp;80+</td>
+                        <!--FIJO-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="td1">&nbsp;Bien</td>
+                        <!--FIJO-->
+                        <td class="bien">&nbsp;60+</td>
+                        <!--FIJO-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="td1">&nbsp;Regular</td>
+                        <!--FIJO-->
+                        <td class="regular">&nbsp;40+</td>
+                        <!--FIJO-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="td1">&nbsp;Carente</td>
+                        <!--FIJO-->
+                        <td class="carente">&nbsp;20+</td>
+                        <!--FIJO-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="td1">&nbsp;Riesgo</td>
+                        <!--FIJO-->
+                        <td class="carente">&nbsp;20-</td>
+                        <!--FIJO-->
+                    </tr>
+                </table>
+                <!--/Tabla5-->
+
+                <table class="tabla6">
+                    <thead>
+                        <tr>
+                            <th class="bluehead">Par&aacute;metro&nbsp;</th>
+                            <!--FIJO-->
+                            <th class="bluehead">Significado&nbsp;</th>
+                            <!--FIJO-->
+                            <th class="bluehead">Parametro&nbsp;</th>
+                            <!--FIJO-->
+                            <th class="bluehead">Significado&nbsp;</th>
+                            <!--FIJO-->
+                        </tr>
+                    </thead>
+                    <tr class="especial">
+                        <td class="tdgris">P1</td>
+                        <!--FIJO-->
+                        <td>Defensa&nbsp;</td>
+                        <!--FIJO-->
+                        <td class="tdgris">&nbsp;**</td>
+                        <!--FIJO-->
+                        <td>Intenci&oacute;n&nbsp;</td>
+                        <!--FIJO-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="tdgris">P2&nbsp;</td>
+                        <!--FIJO-->
+                        <td>Conflicto L&oacute;gico&nbsp;</td>
+                        <!--FIJO-->
+                        <td class="tdgris">SOS&nbsp;</td>
+                        <!--FIJO-->
+                        <td>Say-or-Stop&nbsp;</td>
+                        <!--FIJO-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="tdgris">P3&nbsp;</td>
+                        <!--FIJO-->
+                        <td>Retiene Info&nbsp;</td>
+                        <!--FIJO-->
+                        <td class="tdgris">Estr&eacute;s&nbsp;</td>
+                        <!--FIJO-->
+                        <td>Estr&eacute;s por Declarar&nbsp;</td>
+                        <!--FIJO-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="tdgris">P4&nbsp;</td>
+                        <!--FIJO-->
+                        <td>Verg&uuml;enza&nbsp;</td>
+                        <!--FIJO-->
+                        <td class="tdgris">&nbsp;Concentracion</td>
+                        <!--FIJO-->
+                        <td>Alta Cognitividad&nbsp;</td>
+                        <!--FIJO-->
+                    </tr>
+                </table>
+                <!--/Tabla6-->
+
+                <p id="guia">* La Gu&iacute;a de Par&aacute;metros s&oacute;lo contiene los elementos que aparecen con mayor frecuencia. Es posible que su informe integre par&aacute;metros adicionales a los que no aparecen en &eacute;sta Gu&iacute;a.</p>
+                <!--/Guia-->
+                <!--FIJO-->
+
+            </div>
+            <!--/Cabeza4-->
+
+            <div class="cabeza5">
+                <h3 class="hblancocentrar"> Riesgos de Cumplimiento </h3>
+                <!--FIJO-->
+
+                <table class="tabla7">
+                    <thead>
+                        <tr>
+                            <td class="numcentrar6">&nbsp;<b>Score</b></td>
+                            <!--FIJO-->
+                            <td class="numcentrar10">&nbsp;<b>Tema</b></td>
+                            <!--FIJO-->
+                            <td class="numcentrar4">&nbsp;<b> #</b></td>
+                            <!--FIJO-->
+                            <td class="t70">&nbsp;<b> Pregunta</b></td>
+                            <!--FIJO-->
+                            <td class="numcentrar10">&nbsp;<b> Par&aacute;metros</b></td>
+                            <!--FIJO-->
+                        </tr>
+                    </thead>
+                    <tr class="especial">
+                        <td class="carenteinv">&nbsp;5</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Lealtad</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;6</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;Cuando te comprometes de palabra en alg&uacute;n asunto de trabajo, lo cumples ?</td>
+                        <!--PREGUNTA-->
+                        <td class="carente">&nbsp;P4, P1</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="carenteinv">&nbsp;7</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Lealtad</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;7</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;Alguna vez observaste a alguien haciendo un acto deshonesto en el trabajo ? Hiciste algo ..</td>
+                        <!--PREGUNTA-->
+                        <td class="carente">&nbsp;P1</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="carenteinv">&nbsp;8</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Sustracci&oacute;n</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;5</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;Alguna vez te han ofrecido bajar producto de la unidad para venderlo por fuera, y que hiciste ?</td>
+                        <!--PREGUNTA-->
+                        <td class="carente">&nbsp;P3</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="carenteinv">&nbsp;15</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Estafa</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;5</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;En forma reciente, has presentado recibos de gastos falsos que no se hicieron ?</td>
+                        <!--PREGUNTA-->
+                        <td class="carente">&nbsp;SOS</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="regularinv">&nbsp;45</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Consumos</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;3</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;Requieres ayuda o apoyo social ademas de economico ?</td>
+                        <!--PREGUNTA-->
+                        <td class="regular">&nbsp;SOS</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="regularinv">&nbsp;47</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Consumos</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;1</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;Desempe&ntilde;as tus actividades laborales bajo la influencia de drogas para mantenerte alerta ..</td>
+                        <!--PREGUNTA-->
+                        <td class="regular">&nbsp;*</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="regularinv">&nbsp;49</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Integridad</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;2</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;Qu&eacute; significa para ti ser honesto ?</td>
+                        <!--PREGUNTA-->
+                        <td class="regular">&nbsp;*</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="regularinv">&nbsp;52</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Datos</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;3</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;Regularmente te vez en la necesidad de pedir pr&eacute;stamos ? A quien se los solicitas ?</td>
+                        <!--PREGUNTA-->
+                        <td class="regular">&nbsp;*</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                    <tr class="especial">
+                        <td class="bieninv">&nbsp;61</td>
+                        <!--SCORE-->
+                        <td class="numcentrar">&nbsp;Datos</td>
+                        <!--TEMA-->
+                        <td class="numcentrar">&nbsp;5</td>
+                        <!--NUMERO-->
+                        <td class="td1">&nbsp;Alguna vez te han despedido de tu trabajo ? Por qu&eacute; ?</td>
+                        <!--PREGUNTA-->
+                        <td class="bien">&nbsp;Stress</td>
+                        <!--PARAMETROS-->
+                    </tr>
+                </table>
+                <!--/Tabla7-->
+
+                <table class="tabla8">
+                    <tr>
+                        <td class="t48">Test ID: <b>1002565854</b></td>
+                        <!--TEST ID: -->
+                        <td class="t21">Car&aacute;tula</td>
+                        <!--FIJO-->
+                        <td class="t31">Emisi&oacute;n: <b>25-11-2016 a las 16:45 pm (GMT +6)</b></td>
+                        <!--FECHA Y HORA-->
+                    </tr>
+                </table>
+                <!--/Tabla8-->
+
+            </div>
+            <!--/Cabeza5-->
+
+        </div>
+        <!--/Container2-->
+
+    </div>
+    <!--/Hoja-->
+
+    <div class="container3">
+
+        <div class="logo3">
+            <img class="logo4" alt="No cargo" src="gcp.png">
+            <!--FIJO-->
+        </div>
+        <!--/Logo3-->
+
+        <p id="hat">HAT TM Certified Solution. HAT Honesty Analysis Theory, GCP Gesti&oacute;n de Cumplimiento Positivo y GCP Positive Compliance son marcas registradas por Positive Compliance LLC. Derechos Reservados. An&aacute;lisis de Voz procesado en Estaciones
+            LVAi V 4.0 (Layered Voice Analysis). LVA es una marca registrada por Nemesysco LTD.
+        </p>
+        <!--/Hat-->
+        <!--FIJO-->
+
+        <p id="powered">Powered By:
+            <!--FIJO-->
+        </p>
+        <!--/Powred-->
+
+        <div class="positive">
+            <img class="logopositive" alt="No cargo" src="positive.png">
+            <!--FIJO-->
+        </div>
+        <!--/Positive-->
+
+        <div class="nemesysco">
+            <img class="logonemesysco" alt="No cargo" src="nemesysco.png">
+            <!--FIJO-->
+        </div>
+        <!--Nemesysco-->
+
+        <div class="hat">
+            <img class="logohat" alt="No cargo" src="hat.png">
+            <!--FIJO-->
+        </div>
+        <!--Hat-->
+
+    </div>
+    <!--/container3-->
+
+    <div class="download">
+        <button style="position:relative; left:850px; font-size:20px" type="button" onclick="javascript:genPDF()"> Download PDF </button>
+    </div>
+
+</body>
+
+</html>

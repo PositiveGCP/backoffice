@@ -1,0 +1,60 @@
+End User License Agreement (EULA) for astype fonts
+
+This end user license Agreement (hereinafter "Agreement") is a legal agreement between you, or, if you represent a legal entity, that legal entity (hereinafter "you") and Andreas Seidel (hereinafter "astype"), and is applicable to the Font Software that is accompanied by this Agreement or that you have ordered online. By downloading or using the Font Software or opening the package, you agree to be bound by the terms of this Agreement. If you do not agree to the terms of this Agreement, promptly discontinue use and delete all copies of the Font Software.
+ 
+
+Definitions
+
+"Font Software" means coded software that generates typeface designs when used with the appropriate hard- and software plus any and all other data including documentation provided with such software.
+
+"Licensed Unit" means an installation of the Font Software that allows up to five (5) concurrent users to use it at a single geographic location. A single geographic location is in particular the site of your place of business. The geographic restriction does not apply to portable computers if they are owned by you.
+
+
+Grant of License
+
+1. Number of users & usage rights. 
+Upon payment of the license fee, astype grants you the non-exclusive, non-transferable right to use the Font Software in a Licensed Unit for your own personal or internal business purposes according to the terms of this Agreement. You have no rights to the Font Software other than as expressly set forth in this Agreement. If the number of users who use the Font Software exceeds those set forth in the definition of Licensed Unit above, then you must request from astype an appropriate license covering all users. An additional fee will be charged for this license extension. 
+
+2. Embedding, online documents & interactive media. 
+You may embed the Font Software in documents, applications or devices either as a rasterized representation of the Font Software (e.g., a GIF or JPEG file) or as a subset of the Font Software (e.g., as part of a PDF file) as long as the document, application or device is distributed in a secure format that permits only the viewing and printing but not the editing of the text. You need an additional OEM license (i) for the use of the Font Software in documents, applications or devices permitting editing of the text, if such documents, applications or devices shall be distributed to third parties or (ii) if the Font Software is embedded neither as a subset nor as a rasterized representation (e.g., video games, e-books, apps, media devices like smart phones and e-book readers). You need an additional web font license to use @ font-face embedding for websites. These additional license types can be obtained from astype and partly from astype distribution partners.
+
+3. Broadcasting. 
+For using the Font Software in broadcasts, video or film, an additional broadcasting license is needed and needs to be acquired prior to first use. Broadcast and film usage refers to the use of the Font Software in titling, credits or other text for any onscreen broadcast via television, video or motion picture. The broadcasting license is an annual renewable license extension.
+
+4. Storage, backup & printing. 
+You may make back-up copies of the Font Software for archival purposes only, provided that you retain exclusive custody and control over such copies. The Font Software may not be installed or used on a server that can be accessed via the internet or other external network system (a system other than a LAN) by workstations which are not part of a Licensed Unit. The number of output devices is not restricted, provided that these devices do not store the Font Software permanently.
+
+5. Service bureaus. 
+You may take a digitized copy of the Font Software used in a particular document to a commercial printer or service bureau for outputting this particular document (this document must not be edited by the printer or service bureau). In the event of any modifications to the document or use of the Font Software for other purposes, the printer or service bureau must purchase its own Font Software licenses.
+
+6. Copying. 
+Except as granted in 2. to 4., you may not copy the Font Software or allow third parties to copy the Font Software. Any copy of the Font Software must contain the same copyright, trademark, and other proprietary information as the originals.
+
+7. Modifications.
+You may adapt, modify, alter, translate, convert, and install the font software into another format for use in other environments, subject to the following conditions: A computer on which the converted font software is used or installed shall be considered as one of your permitted number of computers. Use of the font software you have converted shall be pursuant to all the terms and conditions of this Agreement. Such converted font software may be used for your own customary internal business or personal use exclusively and man not be distributed or transferred for any purpose. You may not modify or remove the name(s) of the font software, author's signature, copyright and trademark notices from the original files.
+
+8. Transfer of license.
+You may not rent, lease, sublicense, give, lend, or further distribute the Font Software, parts of it, or any copy thereof, except as expressly provided herein.
+
+9. Ownership & Credits.
+The Font Software, and all copies thereof, is protected by the United States Copyright Law, by the copyright and design laws of other nations, and by international treaties. Any copyright, trademark and other rights belong exclusively to astype. You do not gain the ownership of the Font Software under this Agreement. You agree to credit astype as the trademark and copyright owner of the Font Software and list the font names in any design or production credits.
+
+10. Termination. 
+astype has the right to terminate your license immediately if you fail to comply with any term of this Agreement. Upon termination, you must destroy the original and any copies of the Font Software and Documentation.
+
+11. Warranties.
+astype cannot be held responsible for any damages caused or supported by you and/or third party resulting out of any use of, or inability to use, the Font Software.
+
+12. Final Provisions.
+Should individual terms of this contract become invalid or unenforceable, all others will remain in full force and effect. This contract is subject to the law of the Federal Republic of Germany. You acknowledge that you have read, understand and agree to be bound by the terms and conditions of this Agreement.
+
+ 
+
+Andreas Seidel
+Bristolstraﬂe 27
+13349 Berlin
+Germany
+
+www.astype.de
+
+eula version 01-2015

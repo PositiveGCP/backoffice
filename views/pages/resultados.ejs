@@ -1,32 +1,32 @@
 <%- contentFor('nav_space'); %>
-<!-- Verificar funcionamiento en otros-->
-  <div class="nav-wrapper">
-    <div class="input-field">
-      <input id="search" type="search" required>
-      <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-      <i class="material-icons">close</i>
-    </div>
-  </div>
-
-<%- contentFor('space'); %>
-
-<div class="container" id="companyStatus">
-  <br>
-  <h1 style="font-size:45px !important;"><span>Resultados</span></h1>
-  <p style="padding: 0 38px 0 35px;">En esta sección usted podra verificar las transacciones completadas de las personas evaluadas con el sistema de GCP, asi como los resultadps obtenidos.</p>
-  <br>
-</div>
-
-    <br>
-    <div class="container col s12" id="content-in">
-      <div class="collection" id="content-wrapper"></div>
+    <!-- Verificar funcionamiento en otros-->
+    <div class="nav-wrapper">
+        <div class="input-field">
+            <input id="search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
     </div>
 
-<%- contentFor('space_butt'); %>
+    <%- contentFor('space'); %>
 
-<%- contentFor('space_scr'); %>
+        <div class="container" id="companyStatus">
+            <br>
+            <h1 style="font-size:45px !important;"><span>Resultados</span></h1>
+            <!--  <p style="padding: 0 38px 0 35px;">En esta sección usted podra verificar las transacciones completadas de las personas evaluadas con el sistema de GCP, asi como los resultadps obtenidos.</p>-->
+            <br>
+        </div>
 
-    <!-- Cargar archivos de funcionamiento individual en caso de que quiera hacer ma cambios-->
+        <br>
+        <div class="container col s12" id="content-in">
+            <div class="collection" id="content-wrapper"></div>
+        </div>
 
-    <script src="./js/resultados.js" charset="utf-8"></script>
-    <script src="./js/templates/resultados.js" charset="utf-8"></script>
+        <%- contentFor('space_butt'); %>
+
+            <%- contentFor('space_scr'); %>
+
+                <!-- Cargar archivos de funcionamiento individual en caso de que quiera hacer ma cambios-->
+                <script src="./js/templates/pdfdemo.js" charset="utf-8"></script>
+                <script src="./js/resultados.js" charset="utf-8"></script>
+                <script src="./js/templates/resultados.js" charset="utf-8"></script>
