@@ -1,3 +1,4 @@
+// Hola mundo
 var express         = require('express');
 var expressLayouts  = require('express-ejs-layouts');
 var bodyParser      = require('body-parser'); // Para poder leer JSON mediante request.
